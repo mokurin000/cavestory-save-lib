@@ -1,10 +1,7 @@
 #![feature(pointer_byte_offsets)]
-#![feature(read_buf)]
-#![feature(once_cell)]
 
 use std::{
-    fs,
-    io::{self, BufWriter, Read, Write},
+    fs, io,
 };
 
 mod constant;
@@ -17,14 +14,9 @@ pub use items::*;
 pub struct Profile(Vec<u8>);
 
 impl Profile {
-    pub fn new(path: &str) -> Result<Self, Box<dyn std::error::Error>> {
-        let mut profile = fs::OpenOptions::new().read(true).create(false).open(path)?;
-
-        let length = profile.metadata()?.len();
-        let mut buf = Vec::with_capacity(length as usize);
-        profile.read(&mut buf)?;
+    pub fn new(path: &str) -> Result<Self, io::Error> {
         // currently skip file verfication, as it's not of importance
-        Ok(Profile(buf.into()))
+        Ok(Profile(fs::read(path)?))
     }
 
     fn edit_int(&mut self, offset: isize, value: i32) {
@@ -46,10 +38,8 @@ impl Profile {
         self.edit_int(offset::MAX_HEALTH, max_health);
     }
 
-    pub fn write_to(mut self, path: &str) -> Result<(), io::Error> {
-        let mut profile = fs::OpenOptions::new().write(true).create(true).open(path)?;
-        let mut buf = BufWriter::new(&mut profile);
-        buf.write_all(&mut self.0)?;
+    pub fn write_to(&self, path: &str) -> Result<(), io::Error> {
+        fs::write(path, &self.0)?;
         Ok(())
     }
 }

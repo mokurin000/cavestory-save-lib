@@ -8,3 +8,4 @@ description = "still in WIP"
 
 [dependencies]
 inquire = "0.2.1"
+bitvec = "1"

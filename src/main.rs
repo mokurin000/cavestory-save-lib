@@ -1,6 +1,6 @@
 use std::process::exit;
 
-use cavestory_save_editor::{Profile, WEAPONS};
+use cavestory_save_editor::{Profile, WEAPON, INVENTORY};
 use inquire::{Select, Text};
 
 fn main() -> Result<(), Box<dyn std::error::Error>> {
@@ -16,19 +16,16 @@ fn main() -> Result<(), Box<dyn std::error::Error>> {
             vec![
                 "Current Health",
                 "Max Health",
-                "! Exit without saving",
-                "* Save & Exit",
+                "* Save",
+                "* Exit",
             ],
         )
         .prompt()?;
         match option {
             "Current Health" => profile.current_health(type_int_value()?),
             "Max Health" => profile.max_health(type_int_value()?),
-            "! Exit without saving" => exit(0),
-            "* Save & Exit" => {
-                profile.write_to(path)?;
-                exit(0)
-            }
+            "* Save" => profile.write_to(path)?,
+            "* Exit" => exit(0),
             _ => println!("Unknown choice!"),
         }
     }
