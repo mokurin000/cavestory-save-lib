@@ -1,0 +1,10 @@
+[package]
+name = "cavestory_save_editor"
+version = "0.1.0"
+edition = "2021"
+description = "aims on cross-platform, currently only work with little-endian machine"
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+
+[dependencies]
+inquire = "0.2.1"
