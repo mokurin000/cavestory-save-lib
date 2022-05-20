@@ -2,9 +2,9 @@
 
 currently we support:
 
-- [ ] health
-  - [ ] max health
-  - [ ] current health
+- [x] health
+  - [x] max health
+  - [x] current health
 - [ ] weapon
   - [ ] type
   - [ ] level
