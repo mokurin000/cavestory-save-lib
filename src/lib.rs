@@ -4,7 +4,7 @@
 
 use std::{
     fs,
-    io::{self, Read, ReadBuf},
+    io::{self, BufWriter, Read, Write},
 };
 
 mod constant;
@@ -20,11 +20,10 @@ impl Profile {
     pub fn new(path: &str) -> Result<Self, Box<dyn std::error::Error>> {
         let mut profile = fs::OpenOptions::new().read(true).create(false).open(path)?;
 
-        let mut buf = Vec::new();
-        let mut buf_reader = ReadBuf::new(&mut buf);
-        profile.read_buf_exact(&mut buf_reader)?;
+        let length = profile.metadata()?.len();
+        let mut buf = Vec::with_capacity(length as usize);
+        profile.read(&mut buf)?;
         // currently skip file verfication, as it's not of importance
-
         Ok(Profile(buf.into()))
     }
 
@@ -47,9 +46,10 @@ impl Profile {
         self.edit_int(offset::MAX_HEALTH, max_health);
     }
 
-    pub fn write_to(&self, path: &str) -> Result<(), io::Error> {
+    pub fn write_to(mut self, path: &str) -> Result<(), io::Error> {
         let mut profile = fs::OpenOptions::new().write(true).create(true).open(path)?;
-        unimplemented!();
+        let mut buf = BufWriter::new(&mut profile);
+        buf.write_all(&mut self.0)?;
         Ok(())
     }
 }

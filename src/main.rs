@@ -1,4 +1,4 @@
-use std::{num::ParseIntError, process::exit};
+use std::process::exit;
 
 use cavestory_save_editor::{Profile, WEAPONS};
 use inquire::{Select, Text};
@@ -25,7 +25,10 @@ fn main() -> Result<(), Box<dyn std::error::Error>> {
             "Current Health" => profile.current_health(type_int_value()?),
             "Max Health" => profile.max_health(type_int_value()?),
             "! Exit without saving" => exit(0),
-            "* Save & Exit" => profile.write_to(path)?,
+            "* Save & Exit" => {
+                profile.write_to(path)?;
+                exit(0)
+            }
             _ => println!("Unknown choice!"),
         }
     }
@@ -33,7 +36,7 @@ fn main() -> Result<(), Box<dyn std::error::Error>> {
 
 fn type_int_value() -> Result<i32, Box<dyn std::error::Error>> {
     loop {
-        if let Ok(n) = Text::new("type the new value: ").prompt()?.parse::<i32>() {
+        if let Ok(n) = Text::new("type the new value: ").prompt()?.trim().parse::<i32>() {
             return Ok(n);
         }
     }
