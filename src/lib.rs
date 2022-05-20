@@ -13,6 +13,7 @@ pub use constant::limitation::*;
 use constant::offset;
 pub use items::*;
 
+#[derive(Clone)]
 pub struct Profile(Vec<u8>);
 
 impl Profile {
@@ -40,5 +41,15 @@ impl Profile {
 
     pub fn current_health(&mut self, current_health: i32) {
         self.edit_int(offset::CURRENT_HEALTH, current_health);
+    }
+
+    pub fn max_health(&mut self, max_health: i32) {
+        self.edit_int(offset::MAX_HEALTH, max_health);
+    }
+
+    pub fn write_to(&self, path: &str) -> Result<(), io::Error> {
+        let mut profile = fs::OpenOptions::new().write(true).create(true).open(path)?;
+        unimplemented!();
+        Ok(())
     }
 }
