@@ -12,7 +12,6 @@ currently we support:
   - [ ] max ammo
   - [ ] current ammo
 - [ ] inventory
-- [ ] flags
 
 and for now this tool need to be run natively,
 we except that it could support cross-platform.
