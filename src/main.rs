@@ -13,35 +13,35 @@ fn main() -> Result<(), Box<dyn std::error::Error>> {
     loop {
         let option = Select::new(
             ": ",
-            vec![
-                "Current Health",
-                "Max Health",
-                "Weapon Type",
-                "Weapon Level",
-                "Weapon Exp Level",
-                "Weapon Ammo",
-                "Weapon Max Ammo",
-                "Inventory",
-                "* Save",
-                "* Exit",
-            ],
+            vec!["Health", "Weapon", "Inventory", "* Save", "* Exit"],
         )
         .prompt()?;
         match option {
-            "Current Health" => profile.current_health(type_int_value("new value: ")?),
-            "Max Health" => profile.max_health(type_int_value("new value: ")?),
-            "Weapon Type" => {
-                let slot = type_int_value("slot to edit:")? as isize;
-                profile.weapon_type(select_id(&WEAPON)?, slot)
+            "Health" => {
+                profile.set_current_health(type_int_value("current: ")?);
+                profile.set_max_health(type_int_value("max: ")?)
             }
-            "Weapon Level" => {
+            "Weapon" => {
                 let slot = type_int_value("slot to edit:")? as isize;
-                let level = type_int_value("new level: ")?;
-                profile.weapon_level(level, slot);
+
+                println!("Weapon Type");
+                profile.set_weapon_type(select_id(&WEAPON)?, slot);
+
+                let level = type_int_value("level: ")?;
+                profile.set_weapon_level(level, slot);
+
+                let exp_level = type_int_value("exp level: ")?;
+                profile.set_weapon_exp(exp_level, slot);
+
+                let ammo = type_int_value("ammo: ")?;
+                profile.set_weapon_ammo(ammo, slot);
+
+                let max_ammo = type_int_value("max ammo: ")?;
+                profile.set_weapon_max_ammo(max_ammo, slot);
             }
             "* Save" => profile.write_to(path)?,
             "* Exit" => exit(0),
-            _ => println!("Unknown choice!"),
+            _ => println!("Unimplemented choice!"),
         }
     }
 }

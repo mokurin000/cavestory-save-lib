@@ -14,7 +14,6 @@ pub struct Profile(Vec<u8>);
 
 impl Profile {
     pub fn new(path: &str) -> Result<Self, io::Error> {
-        // currently skip file verfication, as it's not of importance
         Ok(Profile(fs::read(path)?))
     }
 
@@ -25,20 +24,67 @@ impl Profile {
         }
     }
 
-    pub fn current_health(&mut self, current_health: i32) {
+    fn read_int(&self, offset: isize) -> i32 {
+        unsafe { *(self.0.as_ptr() as *const i32).byte_offset(offset) }
+    }
+
+    pub fn set_current_health(&mut self, current_health: i32) {
         self.edit_int(offset::CURRENT_HEALTH, current_health);
     }
 
-    pub fn max_health(&mut self, max_health: i32) {
+    pub fn set_max_health(&mut self, max_health: i32) {
         self.edit_int(offset::MAX_HEALTH, max_health);
     }
 
-    pub fn weapon_type(&mut self, weapon: i32, slot: isize) {
+    pub fn set_weapon_type(&mut self, weapon: i32, slot: isize) {
         self.edit_int(offset::WEAPON_TYPE + offset::WEAPON_SIZE * slot, weapon);
     }
 
-    pub fn weapon_level(&mut self, level: i32, slot: isize) {
+    pub fn set_weapon_level(&mut self, level: i32, slot: isize) {
         self.edit_int(offset::WEAPON_LEVEL + offset::WEAPON_SIZE * slot, level);
+    }
+
+    pub fn set_weapon_exp(&mut self, level: i32, slot: isize) {
+        self.edit_int(offset::WEAPON_EXP + offset::WEAPON_SIZE * slot, level);
+    }
+
+    pub fn set_weapon_ammo(&mut self, level: i32, slot: isize) {
+        self.edit_int(
+            offset::WEAPON_CURRENT_AMMO + offset::WEAPON_SIZE * slot,
+            level,
+        );
+    }
+
+    pub fn set_weapon_max_ammo(&mut self, level: i32, slot: isize) {
+        self.edit_int(offset::WEAPON_MAX_AMMO + offset::WEAPON_SIZE * slot, level);
+    }
+
+    pub fn current_health(&mut self, current_health: i32) -> i32{
+        self.read_int(offset::CURRENT_HEALTH)
+    }
+
+    pub fn max_health(&mut self, max_health: i32) -> i32{
+        self.read_int(offset::MAX_HEALTH)
+    }
+
+    pub fn weapon_type(&mut self, weapon: i32, slot: isize) -> i32{
+        self.read_int(offset::WEAPON_TYPE + offset::WEAPON_SIZE * slot)
+    }
+
+    pub fn weapon_level(&mut self, level: i32, slot: isize) -> i32{
+        self.read_int(offset::WEAPON_LEVEL + offset::WEAPON_SIZE * slot)
+    }
+
+    pub fn weapon_exp(&mut self, level: i32, slot: isize) -> i32{
+        self.read_int(offset::WEAPON_EXP + offset::WEAPON_SIZE * slot)
+    }
+
+    pub fn weapon_ammo(&mut self, level: i32, slot: isize) -> i32{
+        self.read_int(offset::WEAPON_CURRENT_AMMO + offset::WEAPON_SIZE * slot)
+    }
+
+    pub fn weapon_max_ammo(&mut self, level: i32, slot: isize) -> i32{
+        self.read_int(offset::WEAPON_MAX_AMMO + offset::WEAPON_SIZE * slot)
     }
 
     pub fn write_to(&self, path: &str) -> Result<(), io::Error> {
