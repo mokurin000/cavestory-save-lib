@@ -61,6 +61,10 @@ impl Profile {
         );
     }
 
+    pub fn set_inventory(&mut self, inventory: i32, slot: isize) {
+        self.edit_int(offset::INVENTORY_TYPE + 4*slot, inventory)
+    }
+
     pub fn current_health(&self) -> i32 {
         self.read_int(offset::CURRENT_HEALTH)
     }
@@ -87,6 +91,10 @@ impl Profile {
 
     pub fn weapon_max_ammo(&self, slot: isize) -> i32 {
         self.read_int(offset::WEAPON_MAX_AMMO + offset::WEAPON_SIZE * slot)
+    }
+
+    pub fn inventory(&self, slot:isize) -> i32 {
+        self.read_int(offset::INVENTORY_TYPE + 4*slot)
     }
 
     pub fn write_to(&self, path: &str) -> Result<(), io::Error> {

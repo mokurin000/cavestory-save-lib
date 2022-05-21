@@ -17,7 +17,6 @@ fn main() -> Result<(), Box<dyn std::error::Error>> {
                 "Health",
                 "Weapon",
                 "Inventory",
-                "Difficulty",
                 "* Save",
                 "* Exit",
             ],
@@ -31,7 +30,6 @@ fn main() -> Result<(), Box<dyn std::error::Error>> {
             "Weapon" => {
                 let slot = type_int_value("slot to edit:", 0)? as isize;
 
-                println!("type: ");
                 profile.set_weapon_type(select_id(&WEAPON, profile.weapon_type(slot))?, slot);
 
                 let level = type_int_value("level: ", profile.weapon_level(slot))?;
@@ -45,6 +43,12 @@ fn main() -> Result<(), Box<dyn std::error::Error>> {
 
                 let max_ammo = type_int_value("max ammo: ", profile.weapon_max_ammo(slot))?;
                 profile.set_weapon_max_ammo(max_ammo, slot);
+            }
+            "Inventory" => {
+                let slot = type_int_value("slot to edit:", 0)? as isize;
+                
+                let inventory = select_id(&INVENTORY, profile.inventory(slot))?;
+                profile.set_inventory(inventory, slot);
             }
             "* Save" => profile.write_to(path)?,
             "* Exit" => exit(0),

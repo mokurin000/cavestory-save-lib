@@ -1,8 +1,8 @@
 [package]
 name = "cavestory_save_editor"
-version = "0.1.0"
+version = "1.0.0"
 edition = "2021"
-description = "Partially usable. compatible with cavestory(+)"
+description = "profile.dat editor compatible with cavestory(+)"
 authors = ["poly000"]
 license-file = "LICENSE"
 
@@ -12,5 +12,5 @@ inquire = "0.2.1"
 [profile.release]
 opt-level = "z"
 strip = true
-codegen-unit = 1
+codegen-units = 1
 panic = "abort"

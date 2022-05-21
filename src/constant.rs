@@ -8,5 +8,4 @@ pub mod offset {
     pub const WEAPON_MAX_AMMO: isize = 0x44;
     pub const WEAPON_CURRENT_AMMO: isize = 0x48;
     pub const INVENTORY_TYPE: isize = 0xd8;
-    pub const DIFFICULTY: isize = 0x610; // Cave Story+, 0 for normal, 2 for easy, 4 for hard
 }

@@ -1,14 +1,12 @@
 # cavestory_save_editor
 
-Simple save editor for cavestory(+)
-
-for the features implemented see [todo](todo.md).
+Simple save editor for cave story(+) with beautiful easy-to-use interactive UI.
 
 ## Credit
 
-inquire, a full-featured interactive library with easy api.
+[inquire](https://github.com/mikaelmello/inquire), a full-featured interactive library with easy api.
 
-strategywiki, which provides the layout of profile.dat
+[strategywiki](https://strategywiki.org/wiki/Cave_Story/Cheats), which provides the layout of profile.dat
 
 ## License
 
