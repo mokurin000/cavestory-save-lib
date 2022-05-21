@@ -66,8 +66,8 @@ fn type_int_value(tip: &str, default: i32) -> Result<i32, Box<dyn std::error::Er
     }
 }
 
-fn select_id(list: &Vec<&str>, default: i32) -> Result<i32, Box<dyn std::error::Error>> {
-    let opt = Select::new("select the new value: ", list.clone()).prompt_skippable()?;
+fn select_id(list: &[&str], default: i32) -> Result<i32, Box<dyn std::error::Error>> {
+    let opt = Select::new("select the new value: ", list.to_vec()).prompt_skippable()?;
     if let Some(option) = opt {
         Ok(list
             .iter()
