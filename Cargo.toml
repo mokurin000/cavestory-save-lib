@@ -1,10 +1,11 @@
 [package]
 name = "cavestory_save_editor"
-version = "1.0.0"
+version = "1.0.1"
 edition = "2021"
 description = "profile.dat editor compatible with cavestory(+)"
 authors = ["poly000"]
 license-file = "LICENSE"
+repository = "https://github.com/poly000/cavestory_save_editor"
 
 [dependencies]
 inquire = "0.2.1"
