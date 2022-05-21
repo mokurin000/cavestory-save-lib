@@ -13,7 +13,18 @@ fn main() -> Result<(), Box<dyn std::error::Error>> {
     loop {
         let option = Select::new(
             ": ",
-            vec!["Current Health", "Max Health", "* Save", "* Exit"],
+            vec![
+                "Current Health",
+                "Max Health",
+                "Weapon Type",
+                "Weapon Level",
+                "Weapon Exp Level",
+                "Weapon Ammo",
+                "Weapon Max Ammo",
+                "Inventory",
+                "* Save",
+                "* Exit",
+            ],
         )
         .prompt()?;
         match option {

@@ -2,6 +2,8 @@
 
 Simple save editor for cavestory(+)
 
+for the features implemented see [todo](todo.md).
+
 ## Credit
 
 inquire, a full-featured interactive library with easy api.
