@@ -8,3 +8,9 @@ license-file = "LICENSE"
 
 [dependencies]
 inquire = "0.2.1"
+
+[profile.release]
+opt-level = "z"
+strip = true
+codegen-unit = 1
+
