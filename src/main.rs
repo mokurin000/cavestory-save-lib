@@ -25,25 +25,25 @@ fn main() -> Result<(), Box<dyn std::error::Error>> {
         .prompt()?;
         match option {
             "Health" => {
-                profile.set_current_health(type_int_value("current: ")?);
-                profile.set_max_health(type_int_value("max: ")?)
+                profile.set_current_health(type_int_value("current: ", profile.current_health())?);
+                profile.set_max_health(type_int_value("max: ", profile.max_health())?)
             }
             "Weapon" => {
-                let slot = type_int_value("slot to edit:")? as isize;
+                let slot = type_int_value("slot to edit:", 0)? as isize;
 
                 println!("Weapon Type");
                 profile.set_weapon_type(select_id(&WEAPON)?, slot);
 
-                let level = type_int_value("level: ")?;
+                let level = type_int_value("level: ", profile.weapon_level(slot))?;
                 profile.set_weapon_level(level, slot);
 
-                let exp_level = type_int_value("exp level: ")?;
+                let exp_level = type_int_value("exp level: ", profile.weapon_exp(slot))?;
                 profile.set_weapon_exp(exp_level, slot);
 
-                let ammo = type_int_value("ammo: ")?;
+                let ammo = type_int_value("ammo: ", profile.weapon_ammo(slot))?;
                 profile.set_weapon_ammo(ammo, slot);
 
-                let max_ammo = type_int_value("max ammo: ")?;
+                let max_ammo = type_int_value("max ammo: ", profile.weapon_max_ammo(slot))?;
                 profile.set_weapon_max_ammo(max_ammo, slot);
             }
             "* Save" => profile.write_to(path)?,

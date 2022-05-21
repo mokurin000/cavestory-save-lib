@@ -62,31 +62,31 @@ impl Profile {
         );
     }
 
-    pub fn current_health(&mut self) -> i32 {
+    pub fn current_health(&self) -> i32 {
         self.read_int(offset::CURRENT_HEALTH)
     }
 
-    pub fn max_health(&mut self) -> i32 {
+    pub fn max_health(&self) -> i32 {
         self.read_int(offset::MAX_HEALTH)
     }
 
-    pub fn weapon_type(&mut self, slot: isize) -> i32 {
+    pub fn weapon_type(&self, slot: isize) -> i32 {
         self.read_int(offset::WEAPON_TYPE + offset::WEAPON_SIZE * slot)
     }
 
-    pub fn weapon_level(&mut self, slot: isize) -> i32 {
+    pub fn weapon_level(&self, slot: isize) -> i32 {
         self.read_int(offset::WEAPON_LEVEL + offset::WEAPON_SIZE * slot)
     }
 
-    pub fn weapon_exp(&mut self, slot: isize) -> i32 {
+    pub fn weapon_exp(&self, slot: isize) -> i32 {
         self.read_int(offset::WEAPON_EXP + offset::WEAPON_SIZE * slot)
     }
 
-    pub fn weapon_ammo(&mut self, slot: isize) -> i32 {
+    pub fn weapon_ammo(&self, slot: isize) -> i32 {
         self.read_int(offset::WEAPON_CURRENT_AMMO + offset::WEAPON_SIZE * slot)
     }
 
-    pub fn weapon_max_ammo(&mut self, slot: isize) -> i32 {
+    pub fn weapon_max_ammo(&self, slot: isize) -> i32 {
         self.read_int(offset::WEAPON_MAX_AMMO + offset::WEAPON_SIZE * slot)
     }
 
