@@ -31,8 +31,8 @@ fn main() -> Result<(), Box<dyn std::error::Error>> {
             "Weapon" => {
                 let slot = type_int_value("slot to edit:", 0)? as isize;
 
-                println!("Weapon Type");
-                profile.set_weapon_type(select_id(&WEAPON)?, slot);
+                println!("type: ");
+                profile.set_weapon_type(select_id(&WEAPON, profile.weapon_type(slot))?, slot);
 
                 let level = type_int_value("level: ", profile.weapon_level(slot))?;
                 profile.set_weapon_level(level, slot);
@@ -66,11 +66,15 @@ fn type_int_value(tip: &str, default: i32) -> Result<i32, Box<dyn std::error::Er
     }
 }
 
-fn select_id(list: &Vec<&str>) -> Result<i32, Box<dyn std::error::Error>> {
-    let opt = Select::new("select the new value: ", list.clone()).prompt()?;
-    Ok(list
-        .iter()
-        .enumerate()
-        .find_map(|(i, &op)| if op == opt { Some(i) } else { None })
-        .ok_or_else(|| "cannot find this option!")? as i32)
+fn select_id(list: &Vec<&str>, default: i32) -> Result<i32, Box<dyn std::error::Error>> {
+    let opt = Select::new("select the new value: ", list.clone()).prompt_skippable()?;
+    if let Some(option) = opt {
+        Ok(list
+            .iter()
+            .enumerate()
+            .find_map(|(i, &op)| if op == option { Some(i) } else { None })
+            .ok_or_else(|| "cannot find this option!")? as i32)
+    } else {
+        Ok(default)
+    }
 }
