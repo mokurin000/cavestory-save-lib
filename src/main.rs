@@ -72,13 +72,7 @@ fn type_int_value(tip: &str, default: i32) -> Result<i32, Box<dyn std::error::Er
 
 fn select_id(list: &[&str], default: i32) -> Result<i32, Box<dyn std::error::Error>> {
     let opt = Select::new("select the new value:", list.to_vec()).prompt_skippable()?;
-    if let Some(option) = opt {
-        Ok(list
-            .iter()
-            .enumerate()
-            .find_map(|(i, &op)| if op == option { Some(i) } else { None })
-            .unwrap() as i32)
-    } else {
-        Ok(default)
-    }
+    Ok(list.iter()
+        .position(|&op| op == option )
+        .unwrap_or(default) as i32)
 }
