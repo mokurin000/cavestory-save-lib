@@ -10,8 +10,3 @@ pub mod offset {
     pub const INVENTORY_TYPE: isize = 0xd8;
     pub const DIFFICULTY: isize = 0x610; // Cave Story+, 0 for normal, 2 for easy, 4 for hard
 }
-
-pub mod limitation {
-    pub const INVENTORY_SLOT: i32 = 24; // each inventory is of 0x4 bytes
-    pub const WEAPON_SLOT: i32 = 6;
-}
