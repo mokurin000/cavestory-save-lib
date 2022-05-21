@@ -1,8 +1,6 @@
 #![feature(pointer_byte_offsets)]
 
-use std::{
-    fs, io,
-};
+use std::{fs, io};
 
 mod constant;
 mod items;

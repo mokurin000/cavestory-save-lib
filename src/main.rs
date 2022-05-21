@@ -1,6 +1,6 @@
 use std::process::exit;
 
-use cavestory_save_editor::{Profile, WEAPON, INVENTORY};
+use cavestory_save_editor::{Profile, INVENTORY, WEAPON};
 use inquire::{Select, Text};
 
 fn main() -> Result<(), Box<dyn std::error::Error>> {
@@ -13,12 +13,7 @@ fn main() -> Result<(), Box<dyn std::error::Error>> {
     loop {
         let option = Select::new(
             ": ",
-            vec![
-                "Current Health",
-                "Max Health",
-                "* Save",
-                "* Exit",
-            ],
+            vec!["Current Health", "Max Health", "* Save", "* Exit"],
         )
         .prompt()?;
         match option {
@@ -33,7 +28,11 @@ fn main() -> Result<(), Box<dyn std::error::Error>> {
 
 fn type_int_value() -> Result<i32, Box<dyn std::error::Error>> {
     loop {
-        if let Ok(n) = Text::new("type the new value: ").prompt()?.trim().parse::<i32>() {
+        if let Ok(n) = Text::new("type the new value: ")
+            .prompt()?
+            .trim()
+            .parse::<i32>()
+        {
             return Ok(n);
         }
     }
