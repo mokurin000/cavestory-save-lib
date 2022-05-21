@@ -1,4 +1,5 @@
 #![feature(pointer_byte_offsets)]
+#![feature(once_cell)]
 
 use std::{fs, io};
 
@@ -24,16 +25,20 @@ impl Profile {
         }
     }
 
-    pub fn save_map(&mut self, current_map: i32) {
-        self.edit_int(offset::SAVE_LOCATION, current_map);
-    }
-
     pub fn current_health(&mut self, current_health: i32) {
         self.edit_int(offset::CURRENT_HEALTH, current_health);
     }
 
     pub fn max_health(&mut self, max_health: i32) {
         self.edit_int(offset::MAX_HEALTH, max_health);
+    }
+
+    pub fn weapon_type(&mut self, weapon: i32, slot: isize) {
+        self.edit_int(offset::WEAPON_TYPE + offset::WEAPON_SIZE * slot, weapon);
+    }
+
+    pub fn weapon_level(&mut self, level: i32, slot: isize) {
+        self.edit_int(offset::WEAPON_LEVEL + offset::WEAPON_SIZE * slot, level);
     }
 
     pub fn write_to(&self, path: &str) -> Result<(), io::Error> {

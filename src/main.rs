@@ -17,8 +17,17 @@ fn main() -> Result<(), Box<dyn std::error::Error>> {
         )
         .prompt()?;
         match option {
-            "Current Health" => profile.current_health(type_int_value()?),
-            "Max Health" => profile.max_health(type_int_value()?),
+            "Current Health" => profile.current_health(type_int_value("new value: ")?),
+            "Max Health" => profile.max_health(type_int_value("new value: ")?),
+            "Weapon Type" => {
+                let slot = type_int_value("slot to edit:")? as isize;
+                profile.weapon_type(select_id(&WEAPON)?, slot)
+            }
+            "Weapon Level" => {
+                let slot = type_int_value("slot to edit:")? as isize;
+                let level = type_int_value("new level: ")?;
+                profile.weapon_level(level, slot);
+            }
             "* Save" => profile.write_to(path)?,
             "* Exit" => exit(0),
             _ => println!("Unknown choice!"),
@@ -26,14 +35,19 @@ fn main() -> Result<(), Box<dyn std::error::Error>> {
     }
 }
 
-fn type_int_value() -> Result<i32, Box<dyn std::error::Error>> {
+fn type_int_value(tip: &str) -> Result<i32, Box<dyn std::error::Error>> {
     loop {
-        if let Ok(n) = Text::new("type the new value: ")
-            .prompt()?
-            .trim()
-            .parse::<i32>()
-        {
+        if let Ok(n) = Text::new(tip).prompt()?.trim().parse::<i32>() {
             return Ok(n);
         }
     }
+}
+
+fn select_id(list: &Vec<&str>) -> Result<i32, Box<dyn std::error::Error>> {
+    let opt = Select::new("select the new value: ", list.clone()).prompt()?;
+    Ok(list
+        .iter()
+        .enumerate()
+        .find_map(|(i, &op)| if op == opt { Some(i) } else { None })
+        .ok_or_else(|| "cannot find this option!")? as i32)
 }

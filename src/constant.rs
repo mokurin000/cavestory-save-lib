@@ -1,5 +1,4 @@
 pub mod offset {
-    pub const SAVE_LOCATION: isize = 0x08;
     pub const CURRENT_HEALTH: isize = 0x20;
     pub const MAX_HEALTH: isize = 0x1C;
     pub const WEAPON_SIZE: isize = 0x14;

@@ -6,8 +6,8 @@ currently we support:
   - [x] max health
   - [x] current health
 - [ ] weapon
-  - [ ] type
-  - [ ] level
+  - [x] type
+  - [x] level
   - [ ] exp
   - [ ] max ammo
   - [ ] current ammo
