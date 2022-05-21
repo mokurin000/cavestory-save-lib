@@ -73,7 +73,7 @@ fn select_id(list: &Vec<&str>, default: i32) -> Result<i32, Box<dyn std::error::
             .iter()
             .enumerate()
             .find_map(|(i, &op)| if op == option { Some(i) } else { None })
-            .ok_or("cannot find this option!")? as i32)
+            .unwrap() as i32)
     } else {
         Ok(default)
     }
