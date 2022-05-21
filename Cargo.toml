@@ -13,4 +13,4 @@ inquire = "0.2.1"
 opt-level = "z"
 strip = true
 codegen-unit = 1
-
+panic = "abort"

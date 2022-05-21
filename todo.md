@@ -5,12 +5,12 @@ currently we support:
 - [x] health
   - [x] max health
   - [x] current health
-- [ ] weapon
+- [x] weapon
   - [x] type
   - [x] level
-  - [ ] exp
-  - [ ] max ammo
-  - [ ] current ammo
+  - [x] exp
+  - [x] max ammo
+  - [x] current ammo
 - [ ] inventory
 
 and for now this tool need to be run natively,
