@@ -48,42 +48,45 @@ impl Profile {
         self.edit_int(offset::WEAPON_EXP + offset::WEAPON_SIZE * slot, level);
     }
 
-    pub fn set_weapon_ammo(&mut self, level: i32, slot: isize) {
+    pub fn set_weapon_ammo(&mut self, ammo: i32, slot: isize) {
         self.edit_int(
             offset::WEAPON_CURRENT_AMMO + offset::WEAPON_SIZE * slot,
-            level,
+            ammo,
         );
     }
 
-    pub fn set_weapon_max_ammo(&mut self, level: i32, slot: isize) {
-        self.edit_int(offset::WEAPON_MAX_AMMO + offset::WEAPON_SIZE * slot, level);
+    pub fn set_weapon_max_ammo(&mut self, max_ammo: i32, slot: isize) {
+        self.edit_int(
+            offset::WEAPON_MAX_AMMO + offset::WEAPON_SIZE * slot,
+            max_ammo,
+        );
     }
 
-    pub fn current_health(&mut self, current_health: i32) -> i32{
+    pub fn current_health(&mut self) -> i32 {
         self.read_int(offset::CURRENT_HEALTH)
     }
 
-    pub fn max_health(&mut self, max_health: i32) -> i32{
+    pub fn max_health(&mut self) -> i32 {
         self.read_int(offset::MAX_HEALTH)
     }
 
-    pub fn weapon_type(&mut self, weapon: i32, slot: isize) -> i32{
+    pub fn weapon_type(&mut self, slot: isize) -> i32 {
         self.read_int(offset::WEAPON_TYPE + offset::WEAPON_SIZE * slot)
     }
 
-    pub fn weapon_level(&mut self, level: i32, slot: isize) -> i32{
+    pub fn weapon_level(&mut self, slot: isize) -> i32 {
         self.read_int(offset::WEAPON_LEVEL + offset::WEAPON_SIZE * slot)
     }
 
-    pub fn weapon_exp(&mut self, level: i32, slot: isize) -> i32{
+    pub fn weapon_exp(&mut self, slot: isize) -> i32 {
         self.read_int(offset::WEAPON_EXP + offset::WEAPON_SIZE * slot)
     }
 
-    pub fn weapon_ammo(&mut self, level: i32, slot: isize) -> i32{
+    pub fn weapon_ammo(&mut self, slot: isize) -> i32 {
         self.read_int(offset::WEAPON_CURRENT_AMMO + offset::WEAPON_SIZE * slot)
     }
 
-    pub fn weapon_max_ammo(&mut self, level: i32, slot: isize) -> i32{
+    pub fn weapon_max_ammo(&mut self, slot: isize) -> i32 {
         self.read_int(offset::WEAPON_MAX_AMMO + offset::WEAPON_SIZE * slot)
     }
 
