@@ -1,5 +1,4 @@
 #![feature(pointer_byte_offsets)]
-#![feature(once_cell)]
 
 use std::{fs, io};
 
