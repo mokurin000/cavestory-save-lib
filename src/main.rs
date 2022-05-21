@@ -13,7 +13,14 @@ fn main() -> Result<(), Box<dyn std::error::Error>> {
     loop {
         let option = Select::new(
             ": ",
-            vec!["Health", "Weapon", "Inventory", "* Save", "* Exit"],
+            vec![
+                "Health",
+                "Weapon",
+                "Inventory",
+                "Difficulty",
+                "* Save",
+                "* Exit",
+            ],
         )
         .prompt()?;
         match option {
@@ -46,9 +53,14 @@ fn main() -> Result<(), Box<dyn std::error::Error>> {
     }
 }
 
-fn type_int_value(tip: &str) -> Result<i32, Box<dyn std::error::Error>> {
+fn type_int_value(tip: &str, default: i32) -> Result<i32, Box<dyn std::error::Error>> {
     loop {
-        if let Ok(n) = Text::new(tip).prompt()?.trim().parse::<i32>() {
+        if let Ok(n) = Text::new(tip)
+            .with_default(&default.to_string())
+            .prompt()?
+            .trim()
+            .parse::<i32>()
+        {
             return Ok(n);
         }
     }
