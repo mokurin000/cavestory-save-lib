@@ -13,13 +13,7 @@ fn main() -> Result<(), Box<dyn std::error::Error>> {
     loop {
         let option = Select::new(
             ": ",
-            vec![
-                "Health",
-                "Weapon",
-                "Inventory",
-                "* Save",
-                "* Exit",
-            ],
+            vec!["Health", "Weapon", "Inventory", "* Save", "* Exit"],
         )
         .prompt()?;
         match option {
@@ -46,7 +40,7 @@ fn main() -> Result<(), Box<dyn std::error::Error>> {
             }
             "Inventory" => {
                 let slot = type_int_value("slot to edit:", 0)? as isize;
-                
+
                 let inventory = select_id(&INVENTORY, profile.inventory(slot))?;
                 profile.set_inventory(inventory, slot);
             }
@@ -72,7 +66,7 @@ fn type_int_value(tip: &str, default: i32) -> Result<i32, Box<dyn std::error::Er
 
 fn select_id(list: &[&str], default: i32) -> Result<i32, Box<dyn std::error::Error>> {
     let opt = Select::new("select the new value:", list.to_vec()).prompt_skippable()?;
-    Ok(list.iter()
-        .position(|&op| op == option )
-        .unwrap_or(default) as i32)
+    Ok(opt
+        .map(|opt| list.iter().position(|&option| opt == option).unwrap() as i32)
+        .unwrap_or(default))
 }
