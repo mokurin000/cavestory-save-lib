@@ -26,8 +26,8 @@ impl Profile {
         unsafe { *(self.0.as_ptr() as *const T).byte_offset(offset) }
     }
 
-    pub fn set_current_health(&mut self, current_health: i16) {
-        self.edit(offset::CURRENT_HEALTH, current_health);
+    pub fn set_health(&mut self, health: i16) {
+        self.edit(offset::HEALTH, health);
     }
 
     pub fn set_max_health(&mut self, max_health: i16) {
@@ -47,25 +47,20 @@ impl Profile {
     }
 
     pub fn set_weapon_ammo(&mut self, ammo: i32, slot: isize) {
-        self.edit(
-            offset::WEAPON_CURRENT_AMMO + offset::WEAPON_SIZE * slot,
-            ammo,
+        self.edit(offset::WEAPON_AMMO + offset::WEAPON_SIZE * slot, ammo,
         );
     }
 
     pub fn set_weapon_max_ammo(&mut self, max_ammo: i32, slot: isize) {
-        self.edit(
-            offset::WEAPON_MAX_AMMO + offset::WEAPON_SIZE * slot,
-            max_ammo,
-        );
+        self.edit(offset::WEAPON_MAX_AMMO + offset::WEAPON_SIZE * slot, max_ammo);
     }
 
     pub fn set_inventory(&mut self, inventory: i32, slot: isize) {
         self.edit(offset::INVENTORY_TYPE + 4*slot, inventory)
     }
 
-    pub fn current_health(&self) -> i16 {
-        self.read(offset::CURRENT_HEALTH)
+    pub fn health(&self) -> i16 {
+        self.read(offset::HEALTH)
     }
 
     pub fn max_health(&self) -> i16 {
@@ -85,7 +80,7 @@ impl Profile {
     }
 
     pub fn weapon_ammo(&self, slot: isize) -> i32 {
-        self.read(offset::WEAPON_CURRENT_AMMO + offset::WEAPON_SIZE * slot)
+        self.read(offset::WEAPON_AMMO + offset::WEAPON_SIZE * slot)
     }
 
     pub fn weapon_max_ammo(&self, slot: isize) -> i32 {

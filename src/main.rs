@@ -18,7 +18,7 @@ fn main() -> Result<(), Box<dyn std::error::Error>> {
         .prompt()?;
         match option {
             "Health" => {
-                profile.set_current_health(type_value("current:", profile.current_health())?);
+                profile.set_health(type_value("current:", profile.health())?);
                 profile.set_max_health(type_value("max:", profile.max_health())?)
             }
             "Weapon" => {
