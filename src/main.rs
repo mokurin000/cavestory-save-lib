@@ -1,4 +1,4 @@
-use std::{process::exit, str::FromStr, fmt::Display};
+use std::{process::exit, str::FromStr};
 
 use cavestory_save_editor::{Profile, INVENTORY, WEAPON};
 use inquire::{Select, Text};
@@ -53,18 +53,12 @@ fn main() -> Result<(), Box<dyn std::error::Error>> {
 
 fn type_value<T>(tip: &str, default: T) -> Result<T, Box<dyn std::error::Error>>
 where
-    T: Copy + Display + FromStr,
+    T: Copy + FromStr,
 {
-    loop {
-        if let Ok(n) = Text::new(tip)
-            .with_default(&default.to_string())
-            .prompt()?
-            .trim()
-            .parse::<T>()
-        {
-            return Ok(n);
-        }
-    }
+    Text::new(tip)
+        .prompt()?
+        .trim()
+        .parse::<T>().ok_or(default)
 }
 
 fn select_id(list: &[&str], default: i32) -> Result<i32, Box<dyn std::error::Error>> {
