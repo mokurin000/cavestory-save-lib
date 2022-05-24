@@ -53,12 +53,18 @@ fn main() -> Result<(), Box<dyn std::error::Error>> {
 
 fn type_value<T>(tip: &str, default: T) -> Result<T, Box<dyn std::error::Error>>
 where
-    T: Copy + FromStr,
+    T: Copy + Display + FromStr,
 {
-    Text::new(tip)
-        .prompt()?
-        .trim()
-        .parse::<T>().ok_or(default)
+    loop {
+        if let Ok(n) = Text::new(tip)
+            .with_default(&default.to_string())
+            .prompt()?
+            .trim()
+            .parse::<T>()
+        {
+            return Ok(n);
+        }
+    }
 }
 
 fn select_id(list: &[&str], default: i32) -> Result<i32, Box<dyn std::error::Error>> {
