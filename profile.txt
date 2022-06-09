@@ -1,0 +1,385 @@
+Doukutsu Monogatari - Profile.dat format      (aka Cave Story)
+ by Kapow - 2006 April 13
+ http://lotlot.net/misc/doukutsu/profile.txt
+ email: kapow % the above site
+
+Note: All multi-byte values (not text) are stored low-byte first
+ Ex. 1234 = hex 4D2 = bytes D2 04
+ Ex.  256 = hex 100 = bytes 00 01
+
+BYTES (% = appears outside box on menu screen, @ = glitches, may crash)
+=====
+000-007   "Do041220"
+008       Current map (see MAPS)
+00C       Current song (see SONGS)
+010        [unknown]
+011-012   Horiz. position - distance from left of map (20 00 = 1 tile) (00 01 = 8 tiles)
+014        [unknown]
+015-016   Vert. position - distance from top of map (20 00 = 1 tile) (00 01 = 8 tiles)
+018       Facing direction (00 left, 02 right)
+01C-01D   Max HP
+01E       Whimsical Stars (00-03)
+020-021   Current HP
+024       Current weapon (00-04 = weapon slot 1-5)
+028        [unknown]
+02C-02D   Equipped items, low byte first (see EQUIP)
+034-036   Time
+038       Slot 1 Weapon Type (see WEAPONS)
+03C       Slot 1 Weapon Level
+040       Slot 1 Weapon Energy
+044       Slot 1 Weapon Max Ammo
+048       Slot 1 Weapon Current Ammo
+04C       Slot 2 Weapon Type
+050       Slot 2 Weapon Level
+054       Slot 2 Weapon Energy
+058       Slot 2 Weapon Max Ammo
+05C       Slot 2 Weapon Current Ammo
+060       Slot 3 Weapon Type
+064       Slot 3 Weapon Level
+068       Slot 3 Weapon Energy
+06C       Slot 3 Weapon Max Ammo
+070       Slot 3 Weapon Current Ammo
+074       Slot 4 Weapon Type
+078       Slot 4 Weapon Level
+07C       Slot 4 Weapon Energy
+080       Slot 4 Weapon Max Ammo
+084       Slot 4 Weapon Current Ammo
+088       Slot 5 Weapon Type
+08C       Slot 5 Weapon Level
+090       Slot 5 Weapon Energy
+094       Slot 5 Weapon Max Ammo
+098       Slot 5 Weapon Current Ammo
+09C     % Slot 6 Weapon Type
+0A0     % Slot 6 Weapon Level
+0A4     % Slot 6 Weapon Energy
+0A8     % Slot 6 Weapon Max Ammo
+0AC     % Slot 6 Weapon Current Ammo
+0B0     % Slot 7 Weapon Type
+0B4     % Slot 7 Weapon Level
+0B8     % Slot 7 Weapon Energy
+0BC     % Slot 7 Weapon Max Ammo
+0C0     % Slot 7 Weapon Current Ammo
+0C4     @ Slot 8 Weapon Type (GLITCH: reads garbage up to Slots 11)
+0C8     @ Slot 8 Weapon Level
+0CC     @ Slot 8 Weapon Energy
+0D0     @ Slot 8 Weapon Max Ammo
+0D4     @ Slot 8 Weapon Current Ammo
+0D8       Inventory R1C1 (see ITEMS)
+0DC       Inventory R1C2
+0E0       Inventory R1C3
+0E4       Inventory R1C4
+0E8       Inventory R1C5
+0EC       Inventory R1C6
+0F0       Inventory R2C1
+0F4       Inventory R2C2
+0F8       Inventory R2C3
+0FC       Inventory R2C4
+100       Inventory R2C5
+104       Inventory R2C6
+108       Inventory R3C1
+10C       Inventory R3C2
+110       Inventory R3C3
+114       Inventory R3C4
+118       Inventory R3C5
+11C       Inventory R3C6
+120       Inventory R4C1
+124       Inventory R4C2
+128       Inventory R4C3
+12C       Inventory R4C4
+130       Inventory R4C5
+134       Inventory R4C6
+138       Inventory R5C1
+13C       Inventory R5C2
+140       Inventory R5C3
+144       Inventory R5C4
+148       Inventory R5C5
+14C       Inventory R5C6
+150     % Inventory R6C1
+154     @ Inventory R6C2 (GLITCH: reads garbage up to R7C1)
+158       Slot 1 Teleporter Menu (see T. MENU)
+15C-15D   Slot 1 Teleporter Location (see T. LOCATIONS)
+160       Slot 2 Teleporter Menu
+164-165   Slot 2 Teleporter Location
+168       Slot 3 Teleporter Menu
+16C-16D   Slot 3 Teleporter Location
+170       Slot 4 Teleporter Menu
+174-175   Slot 4 Teleporter Location
+178       Slot 5 Teleporter Menu
+17C-17D   Slot 5 Teleporter Location
+180       Slot 6 Teleporter Menu
+184-185   Slot 6 Teleporter Location
+188       Slot 7 Teleporter Menu
+18C-18D   Slot 7 Teleporter Location
+190     @ Slot 8 Teleporter Menu (GLITCH: reads garbage up to Slot 10)
+194-195 @ Slot 8 Teleporter Location
+218-21B   "FLAG"
+21C-603   Flags (see flags.txt)
+
+Notes:
+ Inventory slots are listed by row and column
+ Max Ammo 00 = infinite ammo
+ Lists are not read past the first 00 in the first byte of a slot:
+  Weapon - Weapon Type
+  Teleporter - Teleporter Menu
+  Inventory - Inventory
+ Very high HP values act strangely - need confirmation on safe maximum
+ If you pick up a weapon or item you already have, it will be ignored
+
+Whimsical Star notes:
+ 0-3 stars orbit your character and damage enemies slightly
+ Stars are gained when your weapon is at maximum and you pick up energy
+ Stars are lost each time damage is taken (any amount)
+ Charging the Spur to maximum instantly brings the star count to 3
+ If the number of stars is higher than 3 (by editing profile.dat),
+  only 3 stars will appear, but taking damage will decrease the real number
+ Ex. byte set to 13 - have 3 stars
+     damaged 16 times - byte 03 - have 3 stars
+     damaged 1 time - byte 02 - have 2 stars
+
+
+
+MAPS (small rooms have the general area in parentheses)
+====
+00  0       Credits
+01  Pens1   Arthur's House - normal
+02  Eggs    Egg Corridor
+03  EggX    Egg No. 00 - normal
+04  Egg6    Egg No. 06
+05  EggR    Egg Observation Room
+06  Weed    Grasstown
+07  Santa   Santa's House
+08  Chako   Chaco's House
+09  MazeI   Labyrinth I (- ertical starting room
+0A  Sand    Sand Zone - normal
+0B  Mimi    Mimiga Village
+0C  Cave    First Cave
+0D  Start   Start Point
+0E  Barr    Shack (Mimiga Village)
+0F  Pool    Reservoir 
+10  Cemet   Graveyard 
+11  Plant   Yamashita Farm 
+12  Shelt   Shelter (Grasstown)
+13  Comu    Assembly Hall (Mimiga Village)
+14  MiBox   Save Point (Mimiga Village)
+15  EgEnd1  Side Room (Egg Corridor)
+16  Cthu    Cthulhu's Abode (Egg Corridor)
+17  Egg1    Egg No. 01
+18  Pens2   Arthur's House - sue using computer
+19  Malco   Power Room (Grasstown)
+1A  WeedS   Save Point (Grasstown)
+1B  WeedD   Execution Chamber (Grasstown)
+1C  Frog    Gum (Grasstown)
+1D  Curly   Sand Zone Residence
+1E  WeedB   Grasstown Hut
+1F  Stream  Main Artery (Waterway)
+20  CurlyS  Small Room (Sand Zone)
+21  Jenka1  Jenka's House - before Balrog attack
+22  Dark    Deserted House (Sand Zone)
+23  Gard    Sand Zone Storehouse
+24  Jenka2  Jenka's House - after Balrog attack
+25  SandE   Sand Zone - after boss fight
+26  MazeH   Labyrinth H - sliding block room
+27  MazeW   Labyrinth W - main area with shop, camp
+28  MazeO   Camp (Labyrinth)
+29  MazeD   Clinic Ruins (Labyrinth)
+2A  MazeA   Labyrinth Shop
+2B  MazeB   Labyrinth B - room with booster
+2C  MazeS   Boulder Chamber (Labyrinth)
+2D  MazeM   Labyrinth M - last area, gaudi eggs
+2E  Drain   Dark Place (Labyrinth)
+2F  Almond  Core (Labyrinth)
+30  River   Waterway
+31  Eggs2   Egg Corridor?
+32  Cthu2   Cthulhu's Abode? (Egg Corridor?)
+33  EggR2   Egg Observation Room?
+34  EggX2   Egg No. 00 - hatched
+35  Oside   Outer Wall
+36  EgEnd2  Side Room (Egg Corridor?)
+37  Itoh    Storehouse (Outer Wall)
+38  Cent    Plantation
+39  Jail1   Jail No. 1 (Plantation)
+3A  Momo    Hideout (Plantation)
+3B  Lounge  Rest Area (Plantation)
+3C  CentW   Teleporter (Plantation)
+3D  Jail2   Jail No. 2 (Plantation)
+3E  Blcny1  Balcony - normal
+3F  Priso1  Last Cave
+40  Ring1   Throne Room (Balcony)
+41  Ring2   The King's Table (Balcony)
+42  Prefa1  Prefab House (Balcony) - normal
+43  Priso2  Last Cave Hidden
+44  Ring3   Black Space (Balcony)
+45  Little  Little House (Outer Wall)
+46  Blcny2  Balcony - escaping
+47  Fall    Ending
+48  Kings   Intro
+49  Pixel   Waterway Cabin
+4A  e_Maze  Credits - Labyrinth
+4B  e_Jenk  Credits - Jenka's House
+4C  e_Malc  Credits - Power Room
+4D  e_Ceme  Credits - Graveyard
+4E  e_Sky   Credits - Sky
+4F  Prefa2  Prefab House (Balcony) - entrance to hell
+50  Hell1   Sacred Ground B1
+51  Hell2   Sacred Ground B2
+52  Hell3   Sacred Ground B3
+53  Mapi    Storage (Graveyard)
+54  Hell4   Passage? - normal
+55  Hell42  Passage? - from Sacred Ground B3
+56  Statue  Statue Chamber (Plantation/Sacred Grounds)
+57  Ballo1  Seal Chamber (Sacred Grounds) - normal
+58  Ostep   Corridor (Sacred Grounds)
+59  e_Labo  Credits - Laboratory
+5A  Pole    Hermit Gunsmith
+5B  Island   [map is empty - script loaded right before good/best endings]
+5C  Ballo2  Seal Chamber (Sacred Grounds) - after fight
+5D  e_Blcn  Credits - Balcony
+5E  Clock   Clock Room (Outer Wall)
+
+
+
+SONGS (official name unless in parentheses)
+=====
+00  (nothing)
+01  Mischievous Robot
+02  Safety
+03  (game over)
+04  Gravity
+05  On to Grasstown
+06  Meltdown 2
+07  Eyes of Flame
+08  Gestation
+09  Mimiga Village
+0A  (get item)
+0B  Balrog's Theme
+0C  Cemetary
+0D  Plant
+0E  Pulse
+0F  (boss defeated)
+10  (get life capsule)
+11  Tyrant
+12  Run!
+13  Jenka 1
+14  Labyrinth Fight
+15  Access
+16  Oppression
+17  Geothermal
+18  Cave Story
+19  Moonsong
+1A  Hero's End
+1B  Scorching Back
+1C  Quiet
+1D  Final Cave
+1E  Balcony
+1F  Charge
+20  Last Battle
+21  The Way Back Home
+22  Zombie
+23  Break Down
+24  Running Hell
+25  Jenka 2
+26  Living Waterway
+27  Seal Chamber
+28  Toroko's Theme
+29  (King's Theme)
+
+
+
+ITEMS
+=====
+00  (nothing)
+01  Arthur's Key
+02  Map System
+03  Santa's Key
+04  Silver Locket
+05  Beast Fang (unused)
+06  Life Capsule (unused)
+07  ID Card
+08  Jellyfish Juice
+09  Rusty Key
+0A  Gum Key
+0B  Gum Base
+0C  Charcoal
+0D  Explosive
+0E  Puppy
+0F  Life Pot
+10  Cure-All
+11  Clinic Key
+12  Booster 0.8
+13  Arms Barrier
+14  Turbocharge
+15  Curly's Air Tank
+16  Nikumaru Counter
+17  Booster v2.0
+18  Mimiga Mask
+19  Teleporter Room Key
+1A  Sue's Letter
+1B  Controller
+1C  Broken Sprinkler
+1D  Sprinkler
+1E  Tow Rope
+1F  Clay Figure Medal
+20  Little Man
+21  Mushroom Badge
+22  Ma Pignon
+23  Curly's Underwear
+24  Alien Medal
+25  Chaco's Lipstick
+26  Whimsical Star
+27  Iron Bond
+
+
+WEAPONS
+=======
+00  (nothing)
+01  Snake
+02  Polar Star
+03  Fireball
+04  Machine Gun
+05  Missile Launcher
+06  Missiles (can't fire)
+07  Bubbler
+08  (blank) (can't fire)
+09  Blade
+0A  Super Missile Launcher
+0B  Super Missiles (can't fire)
+0C  Nemesis
+0D  Spur
+
+
+
+EQUIP (decimal used with EQ+/EQ- in scripts)
+=====
+Bytes Decimal
+01 00  0001  Booster v0.8 (ignored if v2.0 equipped)
+02 00  0002  Map System
+04 00  0004  Arms Barrier
+08 00  0008  Turbocharge
+10 00  0016  Curly's Air Tank
+20 00  0032  Booster v2.0
+40 00  0064  Ma Pignon
+80 00  0128  Whimsical Star
+00 01  0256  Nikumaru Counter
+
+
+
+T. MENU
+=======
+00  (nothing)
+01  Egg Corridor
+02  Grasstown
+03  Sand Zone
+04  Labyrinth
+05  Plantation
+
+
+
+T. LOCATIONS
+============
+71 17  Egg Corridor
+72 17  Grasstown
+73 17  Sand Zone
+74 17  Labyrinth
+75 17  Plantation
+
+Note: more testing required for unused locations
