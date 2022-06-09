@@ -1,4 +1,4 @@
-use std::{process::exit, str::FromStr};
+use std::{process::exit, str::FromStr, fmt::Display};
 
 use cavestory_save_editor::{Profile, INVENTORY, WEAPON};
 use inquire::{Select, Text};
