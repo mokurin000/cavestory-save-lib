@@ -1,0 +1,336 @@
+Doukutsu Monogatari - Flag list     (aka Cave Story)
+ by Kapow - 2006 April 29
+ http://lotlot.net/misc/doukutsu/flags.txt
+ email: kapow @ the above site
+
+FLAGS (FL+/FL-/FLJ)
+=====
+Chron Group   FLAG    TSC    Description
+[?]   [???]   21C/0  [0000]   [not set with FL+, may not even be a flag - seems to turn on right after getting the polar star]
+028   Eggs    228/4   0100   Igor/Sue not in Eggs
+027   Eggs    228/5   0101   POWER-UP - Life Capsule in Eggs (1)
+030   Eggs    228/6   0102   POWER-UP - Life Capsule in Eggs (2)
+035   Eggs    228/7   0103   Igor defeated (opens doors from Eggs to EggX, Eggs2 to EggX2)
+037   Eggs    229/1   0105   Opens door from Eggs to Side Room
+036   Eggs    229/2   0106   Teleport from Eggs/Eggs2 to Pens2 instead of Pens1 (for Pens cutscene)
+038   EggX    22B/0   0120   Sue not in EggX
+033   Egg6    22D/4   0140   ITEM - ID Card
+ X    Pens1   22E/7   0151    [UNUSED? - dummied treasure chest in Pens1? the chest triggers a nonexistant event]
+026   Pens1   22F/1   0153   Prevents Egg Chamber teleportation
+039   Pens1   22F/2   0154   Jack in Pens1, King in Mimi (after Eggs, before King leaves to resure Toroko)
+040   Pens1   22F/3   0155   Shows first Sue in cage cutscene after leaving Pens1
+084   Pens1   22F/4   0156   Kazuma, Booster, Sue, King in Pens1
+083   Pens1   22F/5   0157   Kazuma/Booster arrival cutscene (set during second Sue in cage cutscene)
+086   Pens1   22F/6   0158   Teleporter access to Sand Zone
+180   Pens1   22F/7   0159   Teleport to Eggs2 instead of Eggs (after drowning cutscene)
+193   Pens1   230/0   0160   Triggers Booster v2.0 dialogue
+195   Pens1   230/1   0161   Booster survived
+196   Pens1   230/2   0162   ITEM - Booster v2.0
+031   EggR    235/0   0200   POWER-UP - Missiles in EggR
+032   EggR    235/1   0201   WEAPON - Missile Launcher (enables hidden Missile ammo entities)
+153   EggR    235/2   0202   WEAPON - Super Missile
+046   Weed    236/2   0210   ITEM - Santa's Key
+044   Weed    236/3   0211   Talked to Santa about key
+048   Weed    236/4   0212   Gave Santa's Key to Santa
+054   Weed    236/5   0213   Fireplace grate is gone
+060   Weed    236/6   0214   Opens door from Weed to Malco
+057   Weed    236/7   0215   ITEM - Rusty Key
+058   Weed    237/0   0216   Tried Rusty Key on door to Shelt (dialogue change if you try it again)
+[?]   Weed    237/1   0217    [Deactivates teleporter in Weed - not sure when/why]
+055   Weed    237/2   0218   POWER-UP - Missiles in Weed
+082   Weed    237/3   0219   Shows second Sue in cage cutscene after leaving Weed (set after Kazuma/Booster take scooter) 
+047   Weed    237/4   0220   POWER-UP - Life Capsule in Weed
+069   Weed    237/5   0221   ITEM - Gum Key
+070   Weed    237/6   0222   Opens door from Weed to Frog
+059   Weed    237/7   0223   Told Kazuma that Rusty Key doesn't work on Door to Shelt (dialogue change if you talk to him again)
+043   Weed    238/0   0224   Have visited Weed (dialogue change with caged Sue and King next to her)
+081   Weed    238/1   0225   Scooter not at shelter
+079   Weed    238/2   0226   Scooter crashed
+080   Weed    238/3   0227   Scooter wreckage is smoking (stops once you teleport or enter Santa's house)
+045   Weed    238/4   0228   Talked to Cthulhu 1 in Weed once (dialogue change)
+049   Santa   23A/0   0240    [set with 0241, Santa dialogue jump is after 0241's, jump target doesn't exist]
+050   Santa   23A/1   0241   WEAPON - Fireball, (dialogue changes regarding Chaco's fireplace)
+068   Santa   23A/2   0242   Got Charcoal
+126   Santa   23A/3   0243   Santa kidnapped
+051   Chako   23C/5   0261   Learned about Jellyfish Juice (enables enemies)
+127   Chako   23C/6   0262   Chaco kidnapped
+052   Chako   23C/7   0263   Can get Lipstick (use bed right after Chaco first mentions Jellyfish Juice)
+098   Sand    23D/6   0270   POWER-UP - Life Capsule in Sand (1)
+102   Sand    23D/7   0271   POWER-UP - Life Capsule 2 in Sand (2)
+099   Sand    23E/0   0272   Defeated Omega (Sunstones move when you reach them)
+100   Sand    23E/1   0273   Sunstones moved
+095   Sand    23E/2   0274   Currently have a Puppy on your back
+113   Sand    23E/3   0275   ITEM - Kakeru (puppy)
+110   Sand    23E/4   0276   ITEM - Nene (puppy)
+106   Sand    23E/5   0277    [Shinobu leaves Sand? I don't understand how this is set]
+117   Sand    23E/6   0278   Opens door from Sand to Gard
+103   Sand    23E/7   0279   ITEM - Mick (puppy)
+115   Sand    23F/0   0280   Go to Jenka2 instead of Jenka1 (Balrog stole storehouse key)
+087   Sand    23F/1   0281   Curly not in Sand (saw you at entrance and ran away)
+005   Cave    241/5   0301   Opens door from Cave to Mimi
+006   Cave    241/6   0302   Entered Mimi once (disables falling on King cutscene)
+200   Cave    241/7   0303   More enemies in Cave
+003   Cave    242/0   0304   ITEM - Life Capsule in Cave
+009   Mimi    244/0   0320   Toroko, King moved from platform (after falling on King)
+010   Mimi    244/1   0321   King on left side of platform (before getting locket)
+012   Mimi    244/2   0322   ITEM - Map System
+011   Mimi    244/3   0323   Talked to King on platform once
+024   Mimi    244/4   0324   Opens door from Mimi to Pens1
+042   Mimi    244/5   0325   Teleporter access to Grasstown
+016   Mimi    244/6   0326   King near door from Mimi to Pool
+021   Mimi    244/7   0327   Jack stops guarding door to Cemet
+041   Mimi    245/1   0329   Sue caged in Mimi
+178   Mimi2*  246/4   0340   Mahin kidnapped (after drowning cutscene)
+171   Mimi2*  246/5   0341   Changes music in Mimiga areas (after drowning cutscene)
+018   Barr    249/0   0360   Toroko kidnapped
+019   Barr    249/1   0361   Currently fighting Balrog
+017   Barr    249/2   0362   Locks door from Barr to Mimi
+014   Pool    24A/2   0370   ITEM - Silver Locket
+015   Pool    24A/3   0371   Toroko not in Pool
+177   Pool    24A/4   0372   Kanpachi kidnapped
+023   Cemet   24C/6   0390   ITEM - Arthur's Key
+210   Cemet   24C/7   0391   ITEM - Little Man
+ X    Plant   24F/2   0410   ITEM - Beast Fang (can't get it)
+179   Plant   24F/3   0411   Sandaime kidnapped
+013   Plant   24F/4   0412   POWER-UP - Life Capsule in Plant
+001   Start   251/6   0430   Saw first Kazuma on computer cutscene
+002   Start   251/7   0431   Have saved at least once (loads saved game on Retry)
+020   Comu    253/0   0440   King in Comu
+025   Comu    253/1   0441    [set when first entering Pens1, but has no effect?]
+053   Comu    253/2   0442   WEAPON - Bubbler
+022   Comu    253/3   0443   Jack in Comu after leaving Cemet door
+085   Comu    253/4   0444   Jack in Comu after Kazuma/Booster arrive
+034   Egg1    256/6   0470   Shield lowered in Eggs (used ID Card)
+062   Malco   258/0   0480   Currently fighting Balrog 2 (locks door from Malco to Weed)
+061   Malco   258/1   0481   Fans activated
+063   Malco   258/2   0482   Defeated Balrog 2 (can pull Malco out of ground)
+064   Malco   258/3   0483   Malco is not inactive or in ground
+066   Malco   258/4   0484   Malco says he can make a bomb
+065   Malco   258/5   0485   Malco is standing
+073   Malco   258/6   0486   ITEM - Explosive
+072   Frog    25A/4   0500   Currently fighting Balfrog (locks door from Frog to Weed)
+071   Frog    25A/5   0501   ITEM - Gum Base
+076   Shelt   25D/0   0520   Opens door from Weed to Shelt
+074   Shelt   25D/1   0521   Kazuma is not at the computer
+075   Shelt   25D/2   0522   Kazuma is standing
+077   Shelt   25D/3   0523   Kazuma/Booster in Weed (before scooter)
+222   Shelt   25D/4   0524   Teleporter in Shelt is active
+078   Shelt   25D/5   0525   Save Point and Health Refill appear in Shelt
+056   WeedD   25F/4   0540   POWER-UP - Life Capsule in WeedD
+067   WeedB   260/6   0550   POWER-UP - Missiles in WeedB (fought Rabil)
+088   Curly   262/0   0560    [set when Curly fight starts]
+090   Curly   262/1   0561   Currently fighting Curly (locks doors from Curly to Sand/CurlyS)
+091   Curly   262/2   0562   Told Curly you won't kill the Mimigas
+092   Curly   262/3   0563   WEAPON - Machine Gun
+093   Curly   262/4   0564   Can get Hajime (after Jenka asks you to get the puppies)
+089   Curly   262/5   0565   Curly and Mimiga children not in Curly (sand zone residence)   I don't understand how the Curly fight sets this…
+094   CurlyS  264/4   0580   ITEM - Hajime
+097   CurlyS  264/5   0581   ITEM - Curly's Underwear
+101   Jenka*  265/6   0590   Gave 1st Puppy to Jenka (note: says "Arf!"
+105   Jenka*  265/7   0591   Gave 2nd Puppy to Jenka (note: says "Arf arf!"
+109   Jenka*  266/0   0592   Gave 3rd Puppy to Jenka (note: says "Arf arf arf!"
+112   Jenka*  266/1   0593   Gave 4th Puppy to Jenka (note: says "Booop."
+118   Jenka*  266/2   0594   Gave 5th Puppy to Jenka (note: says "Five!", but you don't get a chance to talk to it)
+116   Jenka*  266/3   0595   Balrog stole storehouse key
+119   Jenka*  266/4   0596   Jenka stood up after Balrog's attack
+107   Dark    268/2   0610   ITEM - Shinobu
+120   Gard    269/4   0620   Saw Toroko red flowers cutscene
+121   Gard    269/5   0621   Currently fighting Frenzied Toroko (locks door from Gard to Sand)
+123   Gard    269/6   0622   King died
+122   Gard    269/7   0623   Frenzied Toroko defeated (can talk to King)
+124   Gard    26A/0   0624   Door leads to SandE (for Misery teleport cutscene)
+125   MazeI   26C/0   0640    [something with Quote falling into the room?]
+129   MazeI   26C/1   0641   Opens door from MazeI to MazeH
+128   MazeI   26C/2   0642   POWER-UP - Life Capsule in MazeI
+141   MazeW   271/0   0680    [Monster X fight triggered?]
+134   MazeW   271/1   0681   Opens door from MazeW to MazeD
+133   MazeO   273/4   0700   ITEM - Clinic Key
+132   MazeO   273/5   0701   Talked to Curly in MazeO once
+137   MazeO   273/6   0702   Gave Cure All to Gero
+138   MazeO   273/7   0703   Curly will be cured
+140   MazeO   274/0   0704   Curly not in MazeW
+131   MazeO   274/1   0705   ITEM - Arms Barrier
+136   MazeD   274/6   0710   Currently fighting Pooh Black (locks door from MazeD to MazeW)
+135   MazeD   274/7   0711   ITEM - Cure All
+155   MazeA   276/0   0720   Teleporter in MazeM active
+130   MazeA   276/1   0721   Bought something from Chaba (Turbocharge, Snake, or Whimsical Star)
+201   MazeA   276/2   0722   EQUIP - Whimsical Star
+142   MazeB   278/4   0740   Saw Booster fall in MazeB
+143   MazeB   278/5   0741   Booster not in MazeB
+145   MazeB   278/6   0742   EQUIP - Booster v0.8
+198   MazeB   278/7   0743   EQUIP - Booster v2.0
+197   MazeB   279/0   0744   Teleporter in MazeB active
+139   MazeS   27B/0   0760   Curly not in MazeO
+146   MazeS   27B/1   0761   Curly ready to lift boulder
+147   MazeS   27B/2   0762   Balrog in MazeS
+148   MazeS   27B/3   0763   Currently fighting Balrog 3 (locks door from MazeS to MazeB)
+149   MazeS   27B/4   0764   Opens door from MazeS to MazeM (boulder moved)
+150   MazeS   27B/5   0765   Balrog 3 defeated (Super Missile chest appears)
+152   MazeS   27B/6   0766   WEAPON - Super Missile
+156   MazeM   27D/4   0780   Passageway in MazeM permanently open (from entering Drain once)
+151   MazeM   27D/5   0781   Curly in MazeM
+154   MazeM   27D/6   0782   Used computer to open passageway in MazeM
+170   MazeM   27D/7   0783   Locks door from MazeM to Drain (after drowning cutscene)
+176   Drain   280/0   0800   Locks door from Drain to MazeM (after drowning cutscene)
+175   Drain   280/1   0801   Opens grate from MazeM to River (after drowning cutscene)
+157   Almond  282/4   0820   Curly is next to first shutter
+158   Almond  282/5   0821   Opens shutters
+159   Almond  282/6   0822   Shutter 4 stuck, Curly is next to shutter 4
+160   Almond  282/7   0823   Shutter 4 fixed
+162   Almond  283/0   0824   Lowered lift in Almond
+163   Almond  283/1   0825   Opens big shutter
+161   Almond  283/2   0826   Curly is next to big shutter
+164   Almond  283/3   0827   Curly is next to broken robot
+166   Almond  283/4   0828   Currently fighting Core (can't get Tow Rope)
+172   Almond  283/5   0829   Curly drowning in Almond (before picking her up with Tow Rope)
+173   Almond  283/6   0830    [lots of effects, set after drowning cutscene]
+184   Almond  283/7   0831   Closes big shutter
+168   Almond  284/0   0832    [water level rose?]
+144   Almond  284/2   0834   ITEM - Tow Rope (also set when getting Booster v0.8)
+183   Almond  284/3   0835   Brought Curly out of Almond (computer in Pixel mentions notebook)
+182   Almond  284/4   0836   Currently have Curly (unconscious) on your back
+169   Almond  284/5   0837   Core defeated (Curly dialogue change)
+174   Almond  284/6   0838    [set after drowning cutscene, but has no effect?]
+165   Almond  284/7   0839   Locks door from Almond to Drain (after getting Tow Rope, before drowning cutscene)
+192   River   286/2   0850   River leads to Pool instead of Stream (but you can't get back to River anyway)
+191   River   286/3   0851   Curly dead (after message shown in River)
+202   Eggs2   28A/0   0880   POWER-UP - Missiles in Eggs2
+203   EggR2   28F/0   0920   POWER-UP - Missiles in EggR2 (makes Save Point appear)
+204   EggR2   28F/1   0921   Currently fighting Sisters (locks doors from EggR2 to Eggs2)
+205   EggR2   28F/3   0923   Sisters defeated (small spikes gone from EggR2)
+207   EggX2   291/4   0940   Opens door from EggX2 to Oside
+206   EggX2   291/5   0941   Kazuma entered EggX2
+208   Oside   294/0   0960   Told Kazuma you'd escape with him (triggers bad ending if you talk to him in Oside)
+243   Oside   294/1   0961   Kazuma and Sky Dragon not in Oside
+214   Itoh    299/0   1000   Scared Itoh
+217   Itoh    299/1   1001   Talked to Itoh once
+218   Itoh    299/2   1002   Talked to Itoh twice
+254   Itoh    299/3   1003   ITEM - Controller
+260   Itoh    299/4   1004   Itoh not in Itoh (the storehouse)
+246   Cent    29B/4   1020   EQUIP - Mimiga Mask (note: there's a jump in the credits, but it doesn't change anything - was he going to have different illustrations?)
+231   Cent    29B/5   1021   Kanpachi in Cent with bucket, sparkle not in Cent (he caught it)
+233   Cent    29B/6   1022   ITEM - Teleporter Room Key
+234   Cent    29B/7   1023   Opens door from Cent to CentW
+241   Cent    29C/0   1024   Know Momorin's password (can enter door from Cent to Momo)
+215   Cent    29C/1   1025   Red Flowers growing in Cent
+239   Cent    29C/2   1026   Red Flowers blooming in Cent
+247   Cent    29C/3   1027   Leftmost (working) sprinkler not in Cent
+248   Cent    29C/4   1028   Broken Sprinkler in Cent
+250   Cent    29C/5   1029   Can get Broken Sprinkler (after Shovel Brigade guy tells you to replace it)
+263   Cent    29C/6   1030   Rocket is finished (opens door from Cent to Priso1/Priso2)
+262   Cent    29C/7   1031   Itoh in Cent
+261   Cent    29D/0   1032   Momorin in Cent
+256   Cent    29D/1   1033   Shovel Brigade and other Mimigas taken away
+264   Cent    29D/2   1034   Momorin took Mimiga Mask and gave back Booster
+232   Cent    29D/3   1035   Can get Teleporter Room Key (Kanpachi told you he caught something)
+258   Cent    29D/4   1036   Red Flowers, Sprinklers not in Cent (petals are left)
+249   Cent    29D/5   1037   Talked to Shovel Brigade (the talkative one) without Mimiga Mask once
+216   Cent    29D/6   1038    [set after meeting Itoh, cleared after long sleep in Momo]
+257   Cent    29D/7   1039    [set after long sleep in Momo - Drolls gone, Puppy appears, more? rocket?]
+265   Cent    29E/0   1040   POWER-UP - Life Capsule in Cent (2)
+220   Cent    29E/1   1041   Talked to Curly in Cent once
+194   Cent    29E/2   1042   Curly survived after Stream (can get Nikumaru Counter)
+221   Cent    29E/3   1043   POWER-UP - Life Capsule in Cent (1)
+219   Cent    29E/4   1044   Talked to Cthulhu in Cent once
+228   Cent    29E/5   1045   Restored Curly's memory
+229   Cent    29E/6   1046   ITEM - Iron Bond
+238   Jail1   2A3/0   1080   Talked to Mahin in Jail1 once
+240   Jail1   2A3/1   1081   Talked to Mahin in Jail1 twice
+235   Jail1   2A3/2   1082   Sue and Jack not in Jail1
+242   Momo    2A5/4   1100   Talked to Momorin once
+245   Momo    2A5/5   1101   ITEM - Mimiga Mask
+253   Momo    2A5/6   1102   Know to talk to Itoh for Momorin (note: sprinklers in Cent use this for dialogue, but should probably use 1121)
+255   Momo    2A5/7   1103   Can use bed in Momo (long sleep)
+259   Momo    2A6/1   1105   Momorin not in Momo
+244   Momo    2A6/2   1106   Gave Booster to Momorin
+252   Momo    2A6/3   1107   Gave Sprinkler to Momorin
+230   Lounge  2A8/0   1120   Kanpachi not in Lounge
+251   Lounge  2A8/1   1121   ITEM - Sprinkler
+236   CentW   2AA/4   1140   Was captured by Droll (doesn't appear again)
+237   CentW   2AA/5   1141   Used Teleporter in CentW once (redundant with 1140 set)
+267   Blcny1  2B0/6   1190   Entered Blcny1 from Priso1/Priso2 (changes teleport from clouds at top of screen)
+268   Blcny1  2B0/7   1191   Entered Blcny1 from Prefa1/Prefa2 (changes teleport from clouds at top of screen)
+269   Blcny1  2B1/0   1192   Entered Blcny1 from Ring1 (changes teleport from clouds at top of screen)
+270   Ring1   2B8/2   1250    [not sure how this is set - Misery not in Ring1]
+272   Ring2   2BA/6   1270   Defeated Doctor (Mimiga dialogues change)
+271   Ring2   2BA/7   1271   Started fighting Doctor   (note: not currently fighting, since it never gets unset)
+273   Ring2   2BB/0   1272   Talked to Chaco once after defeating Doctor
+278   Ring2   2BB/1   1273    [mimigas gone from Ring2? set after island starts to collapse]
+274   Ring2   2BB/2   1274   Hearts appeared in Ring2 (talk to Chaco twice defeating Doctor)
+029   Cthu    2BD/2   1290   Talked to Cthulhu in Cthu once
+266   Priso2  2C1/0   1320   ITEM - Clay Figure Medal (after defeating Red Demon)
+275   Ring3   2C3/4   1340    [something with Undead Core fight]
+277   Ring3   2C3/5   1341    [island is collapsing - makes screen shake?]
+211   Little  2C7/2   1370   Little Man is in Little
+209   Little  2C7/3   1371   Can get Little Man (talked to Little Man's Wife)
+212   Little  2C7/4   1372   Traded Blade for Nemesis
+ X    Little  2C7/5   1373    [UNUSED - never set, Little Man dialogue jump target doesn't exist - there's also an incomplete event in the script]
+279   Blcny2  2C9/6   1390   Helicopter in Blcny2
+280   Blcny2  2C9/7   1391   Sue in Blcny2 near Ring1 entrance
+281   Blcny2  2CA/0   1392   Sue in Blcny2 at cliff's edge
+276   Blcny2  2CA/1   1393   Opens door from Blcny2 to Prefa2
+185   Pixel   2D0/0   1440   Curly on bed
+187   Pixel   2D0/1   1441   Can drain Curly (after reading notebook)
+188   Pixel   2D0/2   1442   Curly drained
+189   Pixel   2D0/3   1443   Can take Curly from bed (after reboot time message)
+190   Pixel   2D0/4   1444   Currently have Curly (drained) on your back
+186   Pixel   2D0/5   1445   Can read notebook (after using computer)
+295   Fall    2D2/4   1460    [set when carried by Balrog, but has no effect?]
+285   Hell*   2DB/2   1530   POWER-UP - Life Capsule in Hell1
+283   Hell*   2DB/3   1531   Curly is in Hell1
+286   Hell*   2DB/4   1532   Currently have Curly (not shooting) on your back
+287   Hell*   2DB/5   1533   Currently have Curly (shooting) on your back
+282   Hell*   2DB/6   1534    [enables Hell enemies etc.?  set when entering Hell1 from Prefa2, so there's no avoiding it]
+284   Hell3   2DD/6   1550    [changes something when entering Hell3 from Hell2?  set when entering Hell1, cleared after defeating Heavy Press?]
+288   Hell3   2DD/7   1551   POWER-UP - Missiles in Hell3 (note: if you get the Missile Launcher here, it has 100 ammo)
+227   Mapi    2DF/0   1560    [Ma Pignon not in Mapi - how is this set?]
+223   Mapi    2DF/1   1561   Mentioned amnesia to Ma Pignon
+224   Mapi    2DF/2   1562   ITEM - Mushroom Badge
+225   Mapi    2DF/3   1563   Viewed Mushroom Badge description on menu (so you know it's worthless)
+226   Mapi    2DF/4   1564   Currently fighting Ma Pignon (locks door from Mapi to Cemet)
+289   Statue  2E2/6   1590   Shot Statue 1
+290   Statue  2E2/7   1591   Shot Statue 2
+291   Statue  2E3/0   1592   Shot Statue 3
+292   Statue  2E3/1   1593   Shot Statue 4
+294   Ballo1  2E4/0   1600   Fought Ballos Head once (must kill it twice to finally defeat him)
+293   Ostep   2E6/4   1620   Ballos's dog not in Ostep
+004   Pole    2E9/0   1640   ITEM - Polar Star
+007   Pole    2E9/1   1641   Hermit Gunsmith not asleep in Pole
+008   Pole    2E9/2   1642   Signpost in Pole
+181   Pole    2E9/3   1643   Hermit Gunsmith awake in Pole
+199   Pole    2E9/4   1644   ITEM - Spur
+213   Clock   2F0/4   1700   ITEM - Nikumaru Counter
+296   End*    316/0   2000   Got best ending (set when carried by Balrog)
+096   Puppy*  393/0   3000   Current Puppy is Hajime
+104   Puppy*  393/1   3001   Current Puppy is Mick
+108   Puppy*  393/2   3002   Current Puppy is Shinobu
+111   Puppy*  393/3   3003   Current Puppy is Kakeru
+114   Puppy*  393/4   3004   Current Puppy is Nene
+167   Water*  410/0   4000    [rising water? set after defeating core, cleared after drowning cutscene]
+
+              603/7   7999   Highest possible flag in profile.dat - anything higher will not be saved
+
+Chron = chronological order (approx.)
+Group = flags are broken up into groups in the game, each one starting at a multiple of 10
+        groups are named here by the map filename, * means no or multiple maps correspond to the group
+FLAG  = profile.dat byte/bit
+TSC   = script command, entity flagID
+
+
+
+SKIPFLAGS (SK+/SK-/SKJ)
+=========
+0001  Ring2   Doctor fight intro
+0002  Ring1   Misery fight intro
+0003  Gard    Frenzied Kokoro fight intro
+0004  Ring3   Undead Core fight intro
+0005  Start   Game intro (Kazuma at computer)
+0006  Almond  Core fight intro (Curly)
+0007  Sand    Omega fight intro (Misery)
+0020  Hell1   Ballos story part 1
+0021  Hell1   Ballos story part 2
+0022  Hell2   Ballos story part 3
+0023  Hell2   Ballos story part 4
+0024  Hell3   Ballos story part 5
+0025  Hell3   Ballos story part 6
+0026  Hell42  Ballos story part 7
