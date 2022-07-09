@@ -1,7 +1,5 @@
 #![feature(pointer_byte_offsets)]
 
-use std::{fs, io};
-
 mod constant;
 mod items;
 use constant::offset;
@@ -12,8 +10,8 @@ pub use items::*;
 pub struct Profile(Vec<u8>);
 
 impl Profile {
-    pub fn new(path: &str) -> Result<Self, io::Error> {
-        Ok(Profile(fs::read(path)?))
+    pub fn new(data: Vec<u8>) -> Self {
+        Profile(data)
     }
 
     fn edit<T: Copy>(&mut self, offset: isize, value: T) {
@@ -92,8 +90,7 @@ impl Profile {
         self.read(offset::INVENTORY_TYPE + 4*slot)
     }
 
-    pub fn write_to(&self, path: &str) -> Result<(), io::Error> {
-        fs::write(path, &self.0)?;
-        Ok(())
+    pub fn into_data(self) -> Vec<u8> {
+        self.0
     }
 }

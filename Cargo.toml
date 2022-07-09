@@ -1,14 +1,13 @@
 [package]
-name = "cavestory_save_editor"
+name = "cavestory-save-lib"
 version = "1.1.1"
 edition = "2021"
-description = "profile.dat editor compatible with cavestory(+)"
+description = "profile.dat edit lib for cavestory"
 authors = ["poly000"]
 license-file = "LICENSE"
-repository = "https://github.com/poly000/cavestory_save_editor"
+repository = "https://github.com/poly000/cavestory-save-lib"
 
 [dependencies]
-inquire = "0.2.1"
 
 [profile.release]
 opt-level = "z"
