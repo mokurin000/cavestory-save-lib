@@ -3,6 +3,7 @@ use std::{process::exit, str::FromStr, fmt::Display};
 use cavestory_save_editor::{Profile, INVENTORY, WEAPON};
 use inquire::{Select, Text};
 
+/// Interactive Menu
 fn main() -> Result<(), Box<dyn std::error::Error>> {
     let mut path_in = Text::new("Path of the profile#.dat");
     path_in.default = Some("profile.dat");
