@@ -1,8 +1,11 @@
-# cavestory_save_editor
+# cavestory save lib
 
-Simple save editor for cave story(+) with beautiful easy-to-use graphic UI.
+modify major values in CaveStory(plus)'s `profile#.dat`
 
-## Credit
+# Usage
 
-[egui](https://github.com/emilk/egui) for GUI
+You should call `Profile::new` with entire data read from Profile.dat to construct a `Profile`
 
+There is `read_*` and `set_*` methods.
+
+Note: index=id for items in `crate::item`
