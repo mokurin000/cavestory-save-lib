@@ -1,8 +1,8 @@
 [package]
 name = "cavestory-save-lib"
-version = "1.1.1"
+version = "2.0.0"
 edition = "2021"
-description = "profile.dat edit lib for cavestory"
+description = "editor for profile.dat of cavestory"
 authors = ["poly000"]
 license-file = "LICENSE"
 repository = "https://github.com/poly000/cavestory-save-lib"
@@ -10,7 +10,7 @@ repository = "https://github.com/poly000/cavestory-save-lib"
 [dependencies]
 
 [profile.release]
-opt-level = "z"
 strip = true
 codegen-units = 1
 panic = "abort"
+lto = true

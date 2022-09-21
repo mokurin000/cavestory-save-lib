@@ -1,60 +1,102 @@
-pub const WEAPON: [&str; 15] = [
-    "None",
-    "Snake",
-    "Polar Star",
-    "Fireball",
-    "Machine Gun",
-    "Missile Launcher",
-    "Missiles [Bad]",
-    "Bubbler",
-    "Unknown [Bad]",
-    "Blade",
-    "Super Missile",
-    "Super Missiles [Bad]",
-    "Nemesis",
-    "Spur",
-    "\"Hajime\" [Bad]",
-];
+/*!
+index = item id in savedata.
+*/
 
-pub const INVENTORY: [&str; 40] = [
-    "None",
-    "Arthur's Key",
-    "Map System",
-    "Santa's Key",
-    "Silver Locket",
-    "Beast Fang",
-    "Life Capsule",
-    "ID Card",
-    "Jellyfish Juice",
-    "Rusted Key",
-    "Gum Key",
-    "Gum Base",
-    "Charcoal",
-    "Bomb",
-    "Dog",
-    "Life Pot",
-    "Cure-All",
-    "Clinic Key",
-    "Booster v0.8",
-    "Arms Barrier",
-    "Turbocharge",
-    "Air Tank",
-    "290 Counter",
-    "Booster v2.0",
-    "Mimiga Mask",
-    "Teleporter Room Key",
-    "Sue's Letter",
-    "Controller",
-    "Broken Sprinkler",
-    "Sprinkler",
-    "Tow Rope",
-    "Medal of the Red Ogre",
-    "Mister Little",
-    "Mushroom Badge",
-    "Ma Pignon",
-    "Curly's Panties",
-    "Alien Medal",
-    "Chako's Rouge",
-    "Whimsical Star",
-    "Iron Bond",
-];
+use std::mem::{transmute, zeroed};
+
+#[derive(Clone, Copy, Debug)]
+pub struct Weapon {
+    pub classification: WeaponType,
+
+    pub level: i32,
+    pub exp: i32,
+    pub ammo: i32,
+    pub max_ammo: i32,
+}
+
+impl Default for Weapon {
+    fn default() -> Self {
+        unsafe { zeroed() }
+    }
+}
+
+#[derive(Clone, Copy, Debug)]
+#[repr(u32)]
+pub enum WeaponType {
+    None,
+    Snake,
+    PolarStar,
+    Fireball,
+    MachineGun,
+    MissileLauncher,
+    #[deprecated = "Bad weapon"]
+    Missiles,
+    Bubbler,
+    #[deprecated = "Bad weapon"]
+    Unknown,
+    Blade,
+    SuperMissile,
+    #[deprecated = "Bad weapon"]
+    SuperMissiles,
+    Nemesis,
+    Spur,
+    #[deprecated = "Bad weapon"]
+    Hajime,
+}
+
+#[derive(Clone, Copy, Debug)]
+#[repr(u32)]
+pub enum Inventory {
+    None,
+    ArthursKey,
+    MapSystem,
+    SantasKey,
+    SilverLocket,
+    BeastFang,
+    LifeCapsule,
+    IDCard,
+    JellyfishJuice,
+    RustedKey,
+    GumKey,
+    GumBase,
+    Charcoal,
+    Bomb,
+    Dog,
+    LifePot,
+    CureAll,
+    ClinicKey,
+    Boosterv08,
+    ArmsBarrier,
+    Turbocharge,
+    AirTank,
+    Counter290,
+    Boosterv20,
+    MimigaMask,
+    TeleporterRoomKey,
+    SuesLetter,
+    Controller,
+    BrokenSprinkler,
+    Sprinkler,
+    TowRope,
+    MedaloftheRedOgre,
+    MisterLittle,
+    MushroomBadge,
+    MaPignon,
+    CurlysPanties,
+    AlienMedal,
+    ChakosRouge,
+    WhimsicalStar,
+    IronBond,
+}
+
+impl From<i32> for Inventory {
+    fn from(v: i32) -> Self {
+        unsafe { transmute(v) }
+    }
+}
+
+impl From<i32> for WeaponType {
+    fn from(v: i32) -> Self {
+        unsafe { transmute(v) }
+    }
+}

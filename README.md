@@ -2,10 +2,26 @@
 
 modify major values in CaveStory(plus)'s `profile#.dat`
 
-# Usage
+## Example
 
-You should call `Profile::new` with entire data read from Profile.dat to construct a `Profile`
+```rust
+use std::fs;
+use cavestory_save_lib::GameProfile;
+use cavestory_save_lib::Profile;
+use cavestory_save_lib::{Weapon, WeaponType};
 
-There is `read_*` and `set_*` methods.
+let mut profile = GameProfile::from(Profile::from(fs::read("profile.dat")?));
+profile.max_health = 11451;
+profile.weapon[0] = Weapon {
+    classification: WeaponType::Spur,
+    level: 0, // Spur does not need level, it's
+    exp: 0,
+};
 
-Note: index=id for items in `crate::item`
+```
+
+## TODO
+
+- [ ] current song.
+- [ ] current map
+- [ ] flags
