@@ -4,19 +4,16 @@ use crate::profile::Profile;
 use crate::Inventory;
 use crate::Weapon;
 
-#[derive(Debug, Clone)]
+#[derive(Debug, Clone, Copy, PartialEq, Eq)]
 pub struct GameProfile {
     pub health: i16,
     pub max_health: i16,
     pub weapon: [Weapon; 8],
     pub inventory: [Inventory; 32],
-    profile: Profile,
 }
 
-impl From<Profile> for GameProfile {
-    fn from(data: Profile) -> Self {
-        let profile = Profile::from(data);
-
+impl GameProfile {
+    pub fn dump(profile: &Profile) -> Self {
         let health = profile.health();
         let max_health = profile.max_health();
         let mut weapon: [Weapon; 8] = unsafe { zeroed() };
@@ -43,16 +40,15 @@ impl From<Profile> for GameProfile {
             max_health,
             weapon,
             inventory,
-            profile,
         }
     }
 }
 
-impl From<GameProfile> for Profile {
-    fn from(game_profile: GameProfile) -> Self {
-        let mut profile = game_profile.profile;
-        profile.set_health(game_profile.health);
-        profile.set_max_health(game_profile.max_health);
+
+impl GameProfile {
+    pub fn write(&self, profile: &mut Profile) {
+        profile.set_health(self.health);
+        profile.set_max_health(self.max_health);
 
         for (
             slot,
@@ -63,18 +59,16 @@ impl From<GameProfile> for Profile {
                 level,
                 classification,
             },
-        ) in game_profile.weapon.iter().enumerate()
-        {
+        ) in self.weapon.iter().enumerate() {
             profile.set_weapon_ammo(ammo, slot);
             profile.set_weapon_exp(exp, slot);
             profile.set_weapon_level(level, slot);
             profile.set_weapon_max_ammo(max_ammo, slot);
             profile.set_weapon_type(classification as i32, slot);
         }
-        for (slot, &inventory) in game_profile.inventory.iter().enumerate() {
+
+        for (slot, &inventory) in self.inventory.iter().enumerate() {
             profile.set_inventory(inventory as i32, slot);
         }
-
-        profile
     }
 }

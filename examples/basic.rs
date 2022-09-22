@@ -1,5 +1,4 @@
 use std::fs;
-
 use cavestory_save_lib::GameProfile;
 use cavestory_save_lib::Inventory;
 use cavestory_save_lib::Profile;
@@ -7,12 +6,12 @@ use cavestory_save_lib::Weapon;
 use cavestory_save_lib::WeaponType;
 
 fn main() {
-    let profile = Profile::from(fs::read("profile.dat").unwrap());
-    let mut profile = GameProfile::from(profile);
+    let mut profile = Profile::from(fs::read("profile.dat").unwrap());
+    let mut game_profile = GameProfile::dump(&profile);
 
-    profile.max_health = -1; // god mode
+    game_profile.max_health = -1; // god mode
 
-    profile.weapon[0] = Weapon {
+    game_profile.weapon[0] = Weapon {
         ammo: 0,
         max_ammo: 0, // infinity ammo
 
@@ -23,8 +22,10 @@ fn main() {
 
     let _ = WeaponType::Missiles; // user-firendly help on broken values
 
-    profile.inventory[0] = Inventory::Boosterv20;
+    game_profile.inventory[0] = Inventory::Boosterv20;
 
-    let v: Vec<u8> = Profile::from(profile).into();
-    fs::write("profile.dat", v).unwrap();
+    game_profile.write(&mut profile);
+
+    let bytes: Vec<u8> = profile.into();
+    fs::write("profile.dat", &bytes).unwrap();
 }

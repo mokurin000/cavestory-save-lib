@@ -4,7 +4,7 @@ index = item id in savedata.
 
 use std::mem::{transmute, zeroed};
 
-#[derive(Clone, Copy, Debug)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct Weapon {
     pub classification: WeaponType,
 
@@ -20,7 +20,7 @@ impl Default for Weapon {
     }
 }
 
-#[derive(Clone, Copy, Debug)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
 #[repr(u32)]
 pub enum WeaponType {
     None,
@@ -44,7 +44,7 @@ pub enum WeaponType {
     Hajime,
 }
 
-#[derive(Clone, Copy, Debug)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
 #[repr(u32)]
 pub enum Inventory {
     None,
