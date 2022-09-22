@@ -1,9 +1,9 @@
 use std::fs;
-use cavestory_save_lib::GameProfile;
-use cavestory_save_lib::Inventory;
-use cavestory_save_lib::Profile;
-use cavestory_save_lib::Weapon;
-use cavestory_save_lib::WeaponType;
+use cavestory_save::GameProfile;
+use cavestory_save::Inventory;
+use cavestory_save::Profile;
+use cavestory_save::Weapon;
+use cavestory_save::WeaponType;
 
 fn main() {
     let mut profile = Profile::from(fs::read("profile.dat").unwrap());

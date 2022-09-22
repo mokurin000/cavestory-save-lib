@@ -1,6 +1,6 @@
 [package]
 name = "cavestory-save-lib"
-version = "2.0.0"
+version = "2.0.1"
 edition = "2021"
 description = "editor for profile.dat of cavestory"
 authors = ["poly000"]
@@ -14,3 +14,6 @@ strip = true
 codegen-units = 1
 panic = "abort"
 lto = true
+
+[lib]
+name = "cavestory_save"
