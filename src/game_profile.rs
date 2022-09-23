@@ -3,10 +3,14 @@ use std::mem::zeroed;
 use crate::profile::Profile;
 use crate::items::Inventory;
 use crate::items::Weapon;
+use crate::items::Song;
 
 /// data dumped from [Profile](Profile), with forced slot bound.
 #[derive(Debug, Clone, Copy, PartialEq, Eq)]
 pub struct GameProfile {
+    /// current background music
+    pub music: Song,
+
     /// your current health in game.
     pub health: i16,
     
@@ -22,6 +26,7 @@ pub struct GameProfile {
 
 impl GameProfile {
     pub fn dump(profile: &Profile) -> Self {
+        let music = profile.music().into();
         let health = profile.health();
         let max_health = profile.max_health();
         let mut weapon: [Weapon; 8] = unsafe { zeroed() };
@@ -44,6 +49,7 @@ impl GameProfile {
         }
 
         Self {
+            music,
             health,
             max_health,
             weapon,
@@ -55,6 +61,7 @@ impl GameProfile {
 
 impl GameProfile {
     pub fn write(&self, profile: &mut Profile) {
+        profile.set_music(self.music as i32);
         profile.set_health(self.health);
         profile.set_max_health(self.max_health);
 

@@ -47,7 +47,21 @@ impl Profile {
             native.swap_bytes()
         }
     }
+}
 
+impl From<Vec<u8>> for Profile {
+    fn from(content: Vec<u8>) -> Self {
+        Profile(content)
+    }
+}
+
+impl From<Profile> for Vec<u8> {
+    fn from(profile: Profile) -> Self {
+        profile.0
+    }
+}
+
+impl Profile {
     pub fn set_health(&mut self, health: i16) {
         self.edit16(offset::HEALTH, health);
     }
@@ -83,6 +97,10 @@ impl Profile {
         self.edit(offset::INVENTORY_TYPE + 4 * slot, inventory)
     }
 
+    pub fn set_music(&mut self, song: i32) {
+        self.edit(offset::SONG, song);
+    }
+
     pub fn health(&self) -> i16 {
         self.read16(offset::HEALTH)
     }
@@ -114,16 +132,8 @@ impl Profile {
     pub fn inventory(&self, slot: usize) -> i32 {
         self.read(offset::INVENTORY_TYPE + 4 * slot)
     }
-}
 
-impl From<Vec<u8>> for Profile {
-    fn from(content: Vec<u8>) -> Self {
-        Profile(content)
-    }
-}
-
-impl From<Profile> for Vec<u8> {
-    fn from(profile: Profile) -> Self {
-        profile.0
+    pub fn music(&self) -> i32 {
+        self.read(offset::SONG)
     }
 }
