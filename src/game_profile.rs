@@ -6,9 +6,16 @@ use crate::Weapon;
 
 #[derive(Debug, Clone, Copy, PartialEq, Eq)]
 pub struct GameProfile {
+    /// your current health in game.
     pub health: i16,
+    
+    /// set to non-positive for god mode.
     pub max_health: i16,
+
+    /// you should not set 8th weapon, or it may turn into issue.
     pub weapon: [Weapon; 8],
+
+    /// you should not set 32th inventory, or it may turn into issue.
     pub inventory: [Inventory; 32],
 }
 

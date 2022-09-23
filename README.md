@@ -4,6 +4,6 @@ modify major values in CaveStory(plus)'s `profile#.dat`
 
 ## TODO
 
-- [ ] current song
+- [x] current song
 - [ ] current map
-- [ ] flags
+- [ ] flags (bitvec)
