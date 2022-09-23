@@ -1,8 +1,8 @@
 use std::mem::zeroed;
 
 use crate::profile::Profile;
-use crate::Inventory;
-use crate::Weapon;
+use crate::items::Inventory;
+use crate::items::Weapon;
 
 #[derive(Debug, Clone, Copy, PartialEq, Eq)]
 pub struct GameProfile {
