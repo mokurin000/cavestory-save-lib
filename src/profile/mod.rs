@@ -1,5 +1,7 @@
 mod offset;
 
+
+/// entire data from `profile.dat`
 #[derive(Clone, Debug)]
 pub struct Profile(Vec<u8>);
 

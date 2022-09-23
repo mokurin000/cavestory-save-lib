@@ -4,6 +4,7 @@ use crate::profile::Profile;
 use crate::items::Inventory;
 use crate::items::Weapon;
 
+/// data dumped from [Profile](Profile), with forced slot bound.
 #[derive(Debug, Clone, Copy, PartialEq, Eq)]
 pub struct GameProfile {
     /// your current health in game.
