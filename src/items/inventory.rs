@@ -1,17 +1,21 @@
 use std::mem::transmute;
+use strum::Display;
 
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq, Display)]
+#[strum(serialize_all = "title_case")]
 #[repr(u32)]
 pub enum Inventory {
     None,
 
     /// [Fandom Wiki](https://cavestory.fandom.com/wiki/Arthur's_Key)
+    #[strum(serialize = "Arthur's Key")]
     ArthursKey,
 
     /// [Fandom Wiki](https://cavestory.fandom.com/wiki/Map_System)
     MapSystem,
 
     /// [Fandom Wiki](https://cavestory.fandom.com/wiki/Santa's_Key)
+    #[strum(serialize = "Santa's Key")]
     SantasKey,
 
     /// [Fandom Wiki](https://cavestory.fandom.com/wiki/Silver_Locket)
@@ -57,6 +61,7 @@ pub enum Inventory {
     ClinicKey,
 
     /// [Fandom Wiki](https://cavestory.fandom.com/wiki/Booster_v0.8)
+    #[strum(serialize = "Booster v0.8")]
     Boosterv08,
 
     /// [Fandom Wiki](https://cavestory.fandom.com/wiki/Arms_Barrier)
@@ -66,6 +71,7 @@ pub enum Inventory {
     Turbocharge,
 
     /// [Fandom Wiki](https://cavestory.fandom.com/wiki/Curly's_Air_Tank)
+    #[strum(serialize = "Curly's Air Tank")]
     AirTank,
 
     /// [Fandom Wiki](https://cavestory.fandom.com/wiki/290_Counter)
@@ -81,6 +87,7 @@ pub enum Inventory {
     TeleporterRoomKey,
 
     /// [Fandom Wiki](https://cavestory.fandom.com/wiki/Sue's_Letter)
+    #[strum(serialize = "Sue's Letter")]
     SuesLetter,
 
     /// [Fandom Wiki](https://cavestory.fandom.com/wiki/Controller)
@@ -96,6 +103,7 @@ pub enum Inventory {
     TowRope,
 
     /// [Fandom Wiki](https://cavestory.fandom.com/wiki/Medals#Medal_of_the_Red_Ogre)
+    #[strum(serialize = "Medal of the Red Ogre")]
     MedaloftheRedOgre,
 
     /// [Fandom Wiki](https://cavestory.fandom.com/wiki/Littles#Tasks)
@@ -108,6 +116,7 @@ pub enum Inventory {
     MaPignon,
 
     /// [Fandom Wiki](https://cavestory.fandom.com/wiki/Curly's_Panties)
+    #[strum(serialize = "Curly's Panties")]
     CurlysPanties,
 
     /// [Fandom Wiki](https://cavestory.fandom.com/wiki/Medals#Alien_Medal)

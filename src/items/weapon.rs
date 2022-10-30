@@ -1,4 +1,5 @@
 use std::mem::{zeroed, transmute};
+use strum::Display;
 
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct Weapon {
@@ -22,7 +23,8 @@ impl Default for Weapon {
     }
 }
 
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq, Display)]
+#[strum(serialize_all = "title_case")]
 #[repr(u32)]
 pub enum WeaponType {
     None,

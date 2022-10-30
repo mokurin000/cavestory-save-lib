@@ -1,7 +1,9 @@
 use std::mem::transmute;
+use strum::Display;
 
 /// [Fandom Wiki](https://cavestory.fandom.com/wiki/Soundtrack)
-#[derive(Clone, Copy, PartialEq, Eq, Debug)]
+#[derive(Clone, Copy, PartialEq, Eq, Debug, Display)]
+#[strum(serialize_all = "title_case")]
 #[repr(u32)]
 pub enum Song {
     Nothing,
@@ -15,6 +17,7 @@ pub enum Song {
     Gestation,
     MimigaVillage,
     GetItem,
+    #[strum(serialize = "Barlog's Theme")]
     BalrogsTheme,
     Cemetary,
     Plant,
@@ -30,6 +33,7 @@ pub enum Song {
     Geothermal,
     CaveStory,
     Moonsong,
+    #[strum(serialize = "Hero's End")]
     HerosEnd,
     ScorchingBack,
     Quiet,
@@ -44,7 +48,9 @@ pub enum Song {
     Jenka2,
     LivingWaterway,
     SealChamber,
+    #[strum(serialize = "Toroko's Theme")]
     TorokosTheme,
+    #[strum(serialize = "King's Theme")]
     KingsTheme,
 }
 
