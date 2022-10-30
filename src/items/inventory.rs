@@ -75,9 +75,11 @@ pub enum Inventory {
     AirTank,
 
     /// [Fandom Wiki](https://cavestory.fandom.com/wiki/290_Counter)
+    #[strum(serialize = "290 Counter")]
     Counter290,
 
     /// [Fandom Wiki](https://cavestory.fandom.com/wiki/Booster_v2.0)
+    #[strum(serialize = "Booster v2.0")]
     Boosterv20,
 
     /// [Fandom Wiki](https://cavestory.fandom.com/wiki/Mimiga_Mask)
