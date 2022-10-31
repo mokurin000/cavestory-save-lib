@@ -1,7 +1,8 @@
 use std::mem::transmute;
 use strum::Display;
+use strum::EnumIter;
 
-#[derive(Clone, Copy, Debug, PartialEq, Eq, Display)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq, Display, EnumIter)]
 #[strum(serialize_all = "title_case")]
 #[repr(u32)]
 pub enum Inventory {

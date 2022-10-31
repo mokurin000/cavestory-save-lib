@@ -1,8 +1,9 @@
 use std::mem::transmute;
 use strum::Display;
+use strum::EnumIter;
 
 /// [Fandom Wiki](https://cavestory.fandom.com/wiki/Soundtrack)
-#[derive(Clone, Copy, PartialEq, Eq, Debug, Display)]
+#[derive(Clone, Copy, PartialEq, Eq, Debug, Display, EnumIter)]
 #[strum(serialize_all = "title_case")]
 #[repr(u32)]
 pub enum Song {
