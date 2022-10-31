@@ -1,8 +1,8 @@
-use std::mem::transmute;
 use strum::Display;
 use strum::EnumIter;
+use strum::FromRepr;
 
-#[derive(Clone, Copy, Debug, PartialEq, Eq, Display, EnumIter)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq, Display, EnumIter, FromRepr)]
 #[strum(serialize_all = "title_case")]
 #[repr(u32)]
 pub enum Inventory {
@@ -24,7 +24,7 @@ pub enum Inventory {
 
     /// [Fandom Wiki](https://cavestory.fandom.com/wiki/Beast_Fang)
     BeastFang,
-    
+
     /// [Fandom Wiki](https://cavestory.fandom.com/wiki/Life_Capsule)
     LifeCapsule,
 
@@ -137,6 +137,6 @@ pub enum Inventory {
 
 impl From<i32> for Inventory {
     fn from(v: i32) -> Self {
-        unsafe { transmute(v) }
+        Inventory::from_repr(v as u32).unwrap_or(Inventory::None)
     }
 }

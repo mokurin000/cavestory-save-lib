@@ -1,6 +1,8 @@
-use std::mem::{zeroed, transmute};
+use std::mem::zeroed;
+
 use strum::Display;
 use strum::EnumIter;
+use strum::FromRepr;
 
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct Weapon {
@@ -24,7 +26,7 @@ impl Default for Weapon {
     }
 }
 
-#[derive(Clone, Copy, Debug, PartialEq, Eq, Display, EnumIter)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq, Display, EnumIter, FromRepr)]
 #[strum(serialize_all = "title_case")]
 #[repr(u32)]
 pub enum WeaponType {
@@ -32,7 +34,7 @@ pub enum WeaponType {
 
     /// [Fandom Wiki](https://cavestory.fandom.com/wiki/Snake)
     Snake,
-    
+
     /// [Fandom Wiki](https://cavestory.fandom.com/wiki/Polar_Star)
     PolarStar,
 
@@ -53,7 +55,7 @@ pub enum WeaponType {
 
     #[deprecated = "Bad weapon"]
     Unknown,
-    
+
     /// [Fandom Wiki](https://cavestory.fandom.com/wiki/Blade)
     Blade,
 
@@ -75,6 +77,6 @@ pub enum WeaponType {
 
 impl From<i32> for WeaponType {
     fn from(v: i32) -> Self {
-        unsafe { transmute(v) }
+        WeaponType::from_repr(v as u32).unwrap_or(WeaponType::None)
     }
 }

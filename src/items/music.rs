@@ -1,9 +1,9 @@
-use std::mem::transmute;
 use strum::Display;
 use strum::EnumIter;
+use strum::FromRepr;
 
 /// [Fandom Wiki](https://cavestory.fandom.com/wiki/Soundtrack)
-#[derive(Clone, Copy, PartialEq, Eq, Debug, Display, EnumIter)]
+#[derive(Clone, Copy, PartialEq, Eq, Debug, Display, EnumIter, FromRepr)]
 #[strum(serialize_all = "title_case")]
 #[repr(u32)]
 pub enum Song {
@@ -57,6 +57,6 @@ pub enum Song {
 
 impl From<i32> for Song {
     fn from(v: i32) -> Self {
-        unsafe { transmute(v) }
+        Song::from_repr(v as u32).unwrap_or(Song::Nothing)
     }
 }
