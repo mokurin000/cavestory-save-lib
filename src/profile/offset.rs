@@ -1,3 +1,5 @@
+pub(super) const MAP: usize = 0x08;
+
 pub(super) const HEALTH: usize = 0x20;
 pub(super) const MAX_HEALTH: usize = 0x1C;
 

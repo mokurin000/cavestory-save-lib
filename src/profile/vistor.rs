@@ -2,6 +2,9 @@ use super::Profile;
 use super::offset::*;
 
 impl Profile {
+    pub fn set_map(&mut self, map: i32) {
+        self.edit(MAP, map);
+    }
     pub fn set_health(&mut self, health: i16) {
         self.edit16(HEALTH, health);
     }
@@ -39,6 +42,10 @@ impl Profile {
 
     pub fn set_music(&mut self, song: i32) {
         self.edit(SONG, song);
+    }
+
+    pub fn map(&self) -> i32 {
+        self.read(MAP)
     }
 
     pub fn health(&self) -> i16 {
