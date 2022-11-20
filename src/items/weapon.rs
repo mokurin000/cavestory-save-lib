@@ -31,46 +31,22 @@ impl Default for Weapon {
 #[repr(u32)]
 pub enum WeaponType {
     None,
-
-    /// [Fandom Wiki](https://cavestory.fandom.com/wiki/Snake)
     Snake,
-
-    /// [Fandom Wiki](https://cavestory.fandom.com/wiki/Polar_Star)
     PolarStar,
-
-    /// [Fandom Wiki](https://cavestory.fandom.com/wiki/Fireball)
     Fireball,
-
-    /// [Fandom Wiki](https://cavestory.fandom.com/wiki/Machine_Gun)
     MachineGun,
-
-    /// [Fandom Wiki](https://cavestory.fandom.com/wiki/Missile_Launcher)
     MissileLauncher,
-
     #[deprecated = "Bad weapon"]
     Missiles,
-
-    /// [Fandom Wiki](https://cavestory.fandom.com/wiki/Bubbline)
     Bubbler,
-
     #[deprecated = "Bad weapon"]
     Unknown,
-
-    /// [Fandom Wiki](https://cavestory.fandom.com/wiki/Blade)
     Blade,
-
-    /// [Fandom Wiki](https://cavestory.fandom.com/wiki/Missile_Launcher#Super_Missile_Launcher)
     SuperMissile,
-
     #[deprecated = "Bad weapon"]
     SuperMissiles,
-
-    /// [Fandom Wiki](https://cavestory.fandom.com/wiki/Nemesis)
     Nemesis,
-
-    /// [Fandom Wiki](https://cavestory.fandom.com/wiki/Spur)
     Spur,
-
     #[deprecated = "Bad weapon"]
     Hajime,
 }
