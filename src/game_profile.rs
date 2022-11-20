@@ -1,11 +1,13 @@
 use std::mem::zeroed;
 
-use crate::items::{Inventory, Map, Song, Weapon};
+use crate::items::{Inventory, Map, Song, Weapon, Position};
 use crate::profile::Profile;
 
 /// data dumped from [Profile](Profile), with forced slot bound.
 #[derive(Debug, Clone, Copy, PartialEq, Eq)]
 pub struct GameProfile {
+    /// position
+    pub position: Position,
     /// current map
     pub map: Map,
 
@@ -27,6 +29,7 @@ pub struct GameProfile {
 
 impl GameProfile {
     pub fn dump(profile: &Profile) -> Self {
+        let position = Position {x: profile.position_x(), y: profile.position_y()};
         let map = profile.map().into();
         let music = profile.music().into();
         let health = profile.health();
@@ -51,6 +54,7 @@ impl GameProfile {
         }
 
         Self {
+            position,
             map,
             music,
             health,
@@ -63,8 +67,13 @@ impl GameProfile {
 
 impl GameProfile {
     pub fn write(&self, profile: &mut Profile) {
+        profile.set_position_x(self.position.x);
+        profile.set_position_y(self.position.y);
+
         profile.set_map(self.map as i32);
+
         profile.set_music(self.music as i32);
+
         profile.set_health(self.health);
         profile.set_max_health(self.max_health);
 

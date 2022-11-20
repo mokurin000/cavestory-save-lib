@@ -1,3 +1,6 @@
+pub(super) const POSITION_X: usize = 0x11;
+pub(super) const POSITION_Y: usize = 0x15;
+
 pub(super) const MAP: usize = 0x08;
 
 pub(super) const HEALTH: usize = 0x20;
