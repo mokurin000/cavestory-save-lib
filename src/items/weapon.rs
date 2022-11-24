@@ -27,7 +27,7 @@ impl Default for Weapon {
 }
 
 #[derive(Clone, Copy, Debug, PartialEq, Eq, Display, EnumIter, FromRepr)]
-#[strum(serialize_all = "title_case")]
+#[strum(serialize_all = "PascalCase")]
 #[repr(u32)]
 pub enum WeaponType {
     None,
@@ -36,18 +36,18 @@ pub enum WeaponType {
     Fireball,
     MachineGun,
     MissileLauncher,
-    #[deprecated = "Bad weapon"]
+    #[strum(serialize = "Missiles [bad]")]
     Missiles,
     Bubbler,
-    #[deprecated = "Bad weapon"]
+    #[strum(serialize = "Unknown [bad]")]
     Unknown,
     Blade,
     SuperMissile,
-    #[deprecated = "Bad weapon"]
+    #[strum(serialize = "SuperMissiles [bad]")]
     SuperMissiles,
     Nemesis,
     Spur,
-    #[deprecated = "Bad weapon"]
+    #[deprecated = "Hajime [bad]"]
     Hajime,
 }
 

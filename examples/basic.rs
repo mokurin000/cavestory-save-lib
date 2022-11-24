@@ -27,8 +27,6 @@ fn main() {
         ..Default::default()
     };
 
-    let _ = WeaponType::Missiles; // user-firendly help on broken values
-
     game_profile.inventory[0] = Inventory::Boosterv20;
 
     game_profile.write(&mut profile);
