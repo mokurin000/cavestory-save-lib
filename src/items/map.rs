@@ -3,7 +3,6 @@ use strum::EnumIter;
 use strum::FromRepr;
 
 #[derive(Clone, Copy, Debug, PartialEq, Eq, Display, EnumIter, FromRepr)]
-#[strum(serialize_all = "title_case")]
 #[repr(u32)]
 pub enum Map {
     #[strum(serialize = "Credits")]
@@ -34,47 +33,47 @@ pub enum Map {
     FirstCave,
     #[strum(serialize = "Start Point")]
     StartPoint,
-    #[strum(serialize = "Shack (Mimiga Village)")]
+    #[strum(serialize = "Shack")]
     ShackMimigaVillage,
-    #[strum(serialize = "Reservoir ")]
+    #[strum(serialize = "Reservoir")]
     Reservoir,
-    #[strum(serialize = "Graveyard ")]
+    #[strum(serialize = "Graveyard")]
     Graveyard,
-    #[strum(serialize = "Yamashita Farm ")]
+    #[strum(serialize = "Yamashita Farm")]
     YamashitaFarm,
-    #[strum(serialize = "Shelter (Grasstown)")]
+    #[strum(serialize = "Shelter")]
     Shelter,
-    #[strum(serialize = "Assembly Hall (Mimiga Village)")]
+    #[strum(serialize = "Assembly Hall")]
     AssemblyHall,
     #[strum(serialize = "Save Point (Mimiga Village)")]
     SavePointAtMimigaVillage,
-    #[strum(serialize = "Side Room (Egg Corridor)")]
+    #[strum(serialize = "Side Room")]
     SideRoom,
-    #[strum(serialize = "Cthulhu's Abode (Egg Corridor)")]
+    #[strum(serialize = "Cthulhu's Abode")]
     CthulhusAbode,
     #[strum(serialize = "Egg No. 01")]
     EggNo01,
     #[strum(serialize = "Arthur's House - sue using computer")]
     ArthursHouseWithSueUsingComputer,
-    #[strum(serialize = "Power Room (Grasstown)")]
+    #[strum(serialize = "Power Room")]
     PowerRoom,
     #[strum(serialize = "Save Point (Grasstown)")]
     SavePointAtGrasstown,
-    #[strum(serialize = "Execution Chamber (Grasstown)")]
+    #[strum(serialize = "Execution Chamber")]
     ExecutionChamber,
-    #[strum(serialize = "Gum (Grasstown)")]
+    #[strum(serialize = "Gum")]
     Gum,
     #[strum(serialize = "Sand Zone Residence")]
     SandZoneResidence,
     #[strum(serialize = "Grasstown Hut")]
     GrasstownHut,
-    #[strum(serialize = "Main Artery (Waterway)")]
+    #[strum(serialize = "Main Artery")]
     MainArtery,
-    #[strum(serialize = "Small Room (Sand Zone)")]
+    #[strum(serialize = "Small Room")]
     SmallRoom,
     #[strum(serialize = "Jenka's House - before Balrog attack")]
     JenkasHouse,
-    #[strum(serialize = "Deserted House (Sand Zone)")]
+    #[strum(serialize = "Deserted House")]
     DesertedHouse,
     #[strum(serialize = "Sand Zone Storehouse")]
     SandZoneStorehouse,
@@ -82,31 +81,31 @@ pub enum Map {
     JenkasHouseAfterBalrogAttack,
     #[strum(serialize = "Sand Zone - after boss fight")]
     SandZoneAfterBossFight,
-    #[strum(serialize = "Labyrinth H - sliding block room")]
+    #[strum(serialize = "Labyrinth H")]
     LabyrinthH,
-    #[strum(serialize = "LabyrinthW_mainareawithshop,camp")]
+    #[strum(serialize = "Labyrinth W")]
     LabyrinthWMainAreaWithShopCamp,
-    #[strum(serialize = "Camp (Labyrinth)")]
+    #[strum(serialize = "Camp")]
     Camp,
-    #[strum(serialize = "Clinic Ruins (Labyrinth)")]
+    #[strum(serialize = "Clinic Ruins")]
     ClinicRuins,
     #[strum(serialize = "Labyrinth Shop")]
     LabyrinthShop,
-    #[strum(serialize = "Labyrinth B - room with booster")]
+    #[strum(serialize = "Labyrinth B")]
     LabyrinthBroomwithbooster,
-    #[strum(serialize = "Boulder Chamber (Labyrinth)")]
+    #[strum(serialize = "Boulder Chamber")]
     BoulderChamber,
-    #[strum(serialize = "LabyrinthM_lastareagaudieggs")]
+    #[strum(serialize = "Labyrinth M")]
     LabyrinthMLastAreaGaudiEggs,
-    #[strum(serialize = "Dark Place (Labyrinth)")]
+    #[strum(serialize = "Dark Place")]
     DarkPlace,
-    #[strum(serialize = "Core (Labyrinth)")]
+    #[strum(serialize = "Core")]
     Core,
     #[strum(serialize = "Waterway")]
     Waterway,
     #[strum(serialize = "Egg Corridor?")]
     QuestionableEggCorridor,
-    #[strum(serialize = "Cthulhu's Abode? (Egg Corridor?)")]
+    #[strum(serialize = "Cthulhu's Abode?")]
     QuestionableCthulhusAbode,
     #[strum(serialize = "Egg Observation Room?")]
     QuestionableEggObservationRoom,
@@ -114,37 +113,37 @@ pub enum Map {
     EggNo00WhenHatched,
     #[strum(serialize = "Outer Wall")]
     OuterWall,
-    #[strum(serialize = "Side Room (Egg Corridor?)")]
+    #[strum(serialize = "Side Room?")]
     QuestionableSideRoom,
-    #[strum(serialize = "Storehouse (Outer Wall)")]
+    #[strum(serialize = "Storehouse")]
     Storehouse,
     #[strum(serialize = "Plantation")]
     Plantation,
-    #[strum(serialize = "Jail No. 1 (Plantation)")]
+    #[strum(serialize = "Jail No. 1")]
     JailNo1,
-    #[strum(serialize = "Hideout (Plantation)")]
+    #[strum(serialize = "Hideout")]
     Hideout,
-    #[strum(serialize = "Rest Area (Plantation)")]
+    #[strum(serialize = "Rest Area")]
     RestArea,
-    #[strum(serialize = "Teleporter (Plantation)")]
+    #[strum(serialize = "Teleporter")]
     Teleporter,
-    #[strum(serialize = "Jail No. 2 (Plantation)")]
+    #[strum(serialize = "Jail No. 2")]
     JailNo2,
     #[strum(serialize = "Balcony")]
     Balcony,
     #[strum(serialize = "Last Cave")]
     LastCave,
-    #[strum(serialize = "Throne Room (Balcony)")]
+    #[strum(serialize = "Throne Room")]
     ThroneRoom,
-    #[strum(serialize = "The King's Table (Balcony)")]
+    #[strum(serialize = "The King's Table")]
     TheKingsTable,
-    #[strum(serialize = "Prefab House (Balcony) - normal")]
+    #[strum(serialize = "Prefab House")]
     PrefabHouse,
     #[strum(serialize = "Last Cave Hidden")]
     LastCaveHidden,
-    #[strum(serialize = "Black Space (Balcony)")]
+    #[strum(serialize = "Black Space")]
     BlackSpace,
-    #[strum(serialize = "Little House (Outer Wall)")]
+    #[strum(serialize = "Little House")]
     LittleHouse,
     #[strum(serialize = "Balcony?")]
     BalconyEscaping,
@@ -164,7 +163,7 @@ pub enum Map {
     CreditsGraveyard,
     #[strum(serialize = "Credits - Sky")]
     CreditsSky,
-    #[strum(serialize = "Prefab House (Balcony) - entrance to hell")]
+    #[strum(serialize = "Prefab House - entrance to hell")]
     PrefabHouseWithEntranceToHell,
     #[strum(serialize = "Sacred Ground B1")]
     SacredGroundB1,
@@ -172,31 +171,31 @@ pub enum Map {
     SacredGroundB2,
     #[strum(serialize = "Sacred Ground B3")]
     SacredGroundB3,
-    #[strum(serialize = "Storage (Graveyard)")]
+    #[strum(serialize = "Storage")]
     Storage,
     #[strum(serialize = "Passage?")]
     Passage,
     #[strum(serialize = "Passage? - from Sacred Ground B3")]
     PassageFromSacredGroundB3,
-    #[strum(serialize = "Statue Chamber (Plantation/Sacred Grounds)")]
+    #[strum(serialize = "Statue Chamber")]
     StatueChamber,
-    #[strum(serialize = "Seal Chamber (Sacred Grounds)")]
+    #[strum(serialize = "Seal Chamber")]
     SealChamber,
-    #[strum(serialize = "Corridor (Sacred Grounds)")]
+    #[strum(serialize = "Corridor")]
     CorridorSacredGrounds,
     #[strum(serialize = "Credits - Laboratory")]
     CreditsLaboratory,
     #[strum(serialize = "Hermit Gunsmith")]
     HermitGunsmith,
     #[strum(
-        serialize = "[empty map, script loaded right before good/best endings]"
+        serialize = "[script loaded right before good/best endings]"
     )]
     EmptyMap,
-    #[strum(serialize = "Seal Chamber (Sacred Grounds) - after fight")]
+    #[strum(serialize = "Seal Chamber - after fight")]
     SealChamberAfterFight,
     #[strum(serialize = "Credits - Balcony")]
     CreditsBalcony,
-    #[strum(serialize = "Clock Room (Outer Wall)")]
+    #[strum(serialize = "Clock Room")]
     ClockRoom,
 }
 
