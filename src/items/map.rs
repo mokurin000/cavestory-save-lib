@@ -8,11 +8,11 @@ use strum::FromRepr;
 pub enum Map {
     #[strum(serialize = "Credits")]
     Credits,
-    #[strum(serialize = "Arthur's House - normal")]
+    #[strum(serialize = "Arthur's House")]
     ArthursHouse,
     #[strum(serialize = "Egg Corridor")]
     EggCorridor,
-    #[strum(serialize = "Egg No. 00 - normal")]
+    #[strum(serialize = "Egg No. 00")]
     EggNo00,
     #[strum(serialize = "Egg No. 06")]
     EggNo06,
@@ -24,9 +24,9 @@ pub enum Map {
     SantasHouse,
     #[strum(serialize = "Chaco's House")]
     ChacosHouse,
-    #[strum(serialize = "Labyrinth I - ertical starting room")]
+    #[strum(serialize = "Labyrinth I")]
     LabyrinthIErticalStartingRoom,
-    #[strum(serialize = "Sand Zone - normal")]
+    #[strum(serialize = "Sand Zone")]
     SandZone,
     #[strum(serialize = "Mimiga Village")]
     MimigaVillage,
@@ -110,7 +110,7 @@ pub enum Map {
     QuestionableCthulhusAbode,
     #[strum(serialize = "Egg Observation Room?")]
     QuestionableEggObservationRoom,
-    #[strum(serialize = "Egg No. 00 - hatched")]
+    #[strum(serialize = "Egg No. 00?")]
     EggNo00WhenHatched,
     #[strum(serialize = "Outer Wall")]
     OuterWall,
@@ -130,7 +130,7 @@ pub enum Map {
     Teleporter,
     #[strum(serialize = "Jail No. 2 (Plantation)")]
     JailNo2,
-    #[strum(serialize = "Balcony - normal")]
+    #[strum(serialize = "Balcony")]
     Balcony,
     #[strum(serialize = "Last Cave")]
     LastCave,
@@ -146,7 +146,7 @@ pub enum Map {
     BlackSpace,
     #[strum(serialize = "Little House (Outer Wall)")]
     LittleHouse,
-    #[strum(serialize = "Balcony - escaping")]
+    #[strum(serialize = "Balcony?")]
     BalconyEscaping,
     #[strum(serialize = "Ending")]
     Ending,
@@ -174,13 +174,13 @@ pub enum Map {
     SacredGroundB3,
     #[strum(serialize = "Storage (Graveyard)")]
     Storage,
-    #[strum(serialize = "Passage? - normal")]
+    #[strum(serialize = "Passage?")]
     Passage,
     #[strum(serialize = "Passage? - from Sacred Ground B3")]
     PassageFromSacredGroundB3,
     #[strum(serialize = "Statue Chamber (Plantation/Sacred Grounds)")]
     StatueChamber,
-    #[strum(serialize = "Seal Chamber (Sacred Grounds) - normal")]
+    #[strum(serialize = "Seal Chamber (Sacred Grounds)")]
     SealChamber,
     #[strum(serialize = "Corridor (Sacred Grounds)")]
     CorridorSacredGrounds,

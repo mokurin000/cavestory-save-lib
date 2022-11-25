@@ -47,7 +47,7 @@ pub enum WeaponType {
     SuperMissiles,
     Nemesis,
     Spur,
-    #[deprecated = "Hajime [bad]"]
+    #[strum(serialize = "Hajime [bad]")]
     Hajime,
 }
 
