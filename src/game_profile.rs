@@ -1,6 +1,4 @@
-use std::mem::zeroed;
-
-use crate::items::{Inventory, Map, Song, Weapon, Position};
+use crate::items::{Inventory, Map, Song, Weapon, Position, Teleporter};
 use crate::profile::Profile;
 
 /// data dumped from [Profile](Profile), with forced slot bound.
@@ -25,6 +23,9 @@ pub struct GameProfile {
 
     /// you should not set 32th inventory, or it may turn into issue.
     pub inventory: [Inventory; 32],
+
+    /// you should not set 8th teleporter, or it may turn into issue.
+    pub teleporter: [Teleporter; 8],
 }
 
 impl GameProfile {
@@ -34,8 +35,9 @@ impl GameProfile {
         let music = profile.music().into();
         let health = profile.health();
         let max_health = profile.max_health();
-        let mut weapon: [Weapon; 8] = unsafe { zeroed() };
-        let mut inventory: [Inventory; 32] = unsafe { zeroed() };
+        let mut weapon: [Weapon; 8] = Default::default();
+        let mut inventory: [Inventory; 32] = Default::default();
+        let mut teleporter: [Teleporter; 8] = Default::default();
 
         for i in 0..8 {
             if profile.weapon_type(i) != 0 {
@@ -53,6 +55,13 @@ impl GameProfile {
             inventory[i] = profile.inventory(i).into();
         }
 
+        for i in 0..8 {
+            teleporter[i] = Teleporter {
+                menu: profile.teleporter_menu(i).into(),
+                location: profile.teleporter_location(i).into(),
+            }
+        }
+
         Self {
             position,
             map,
@@ -61,6 +70,7 @@ impl GameProfile {
             max_health,
             weapon,
             inventory,
+            teleporter,
         }
     }
 }
@@ -97,6 +107,11 @@ impl GameProfile {
 
         for (slot, &inventory) in self.inventory.iter().enumerate() {
             profile.set_inventory(inventory as i32, slot);
+        }
+
+        for (slot, &Teleporter{ menu, location}) in self.teleporter.iter().enumerate() {
+            profile.set_teleporter_menu(menu as i32, slot);
+            profile.set_teleporter_location(location as i16, slot);
         }
     }
 }

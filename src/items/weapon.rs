@@ -1,10 +1,8 @@
-use std::mem::zeroed;
-
 use strum::Display;
 use strum::EnumIter;
 use strum::FromRepr;
 
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
+#[derive(Default, Clone, Copy, Debug, PartialEq, Eq)]
 pub struct Weapon {
     /// type of this weapon
     pub classification: WeaponType,
@@ -20,16 +18,11 @@ pub struct Weapon {
     pub max_ammo: i32,
 }
 
-impl Default for Weapon {
-    fn default() -> Self {
-        unsafe { zeroed() }
-    }
-}
-
-#[derive(Clone, Copy, Debug, PartialEq, Eq, Display, EnumIter, FromRepr)]
+#[derive(Clone, Copy, Debug, Default, PartialEq, Eq, Display, EnumIter, FromRepr)]
 #[strum(serialize_all = "PascalCase")]
 #[repr(u32)]
 pub enum WeaponType {
+    #[default]
     None,
     Snake,
     PolarStar,
@@ -53,6 +46,6 @@ pub enum WeaponType {
 
 impl From<i32> for WeaponType {
     fn from(v: i32) -> Self {
-        WeaponType::from_repr(v as u32).unwrap_or(WeaponType::None)
+        WeaponType::from_repr(v as u32).unwrap_or(Default::default())
     }
 }

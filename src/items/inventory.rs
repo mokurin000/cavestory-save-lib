@@ -2,10 +2,11 @@ use strum::Display;
 use strum::EnumIter;
 use strum::FromRepr;
 
-#[derive(Clone, Copy, Debug, PartialEq, Eq, Display, EnumIter, FromRepr)]
+#[derive(Clone, Copy, Default, Debug, PartialEq, Eq, Display, EnumIter, FromRepr)]
 #[strum(serialize_all = "title_case")]
 #[repr(u32)]
 pub enum Inventory {
+    #[default]
     None,
 
     #[strum(serialize = "Arthur's Key")]
@@ -98,6 +99,6 @@ pub enum Inventory {
 
 impl From<i32> for Inventory {
     fn from(v: i32) -> Self {
-        Inventory::from_repr(v as u32).unwrap_or(Inventory::None)
+        Inventory::from_repr(v as u32).unwrap_or(Default::default())
     }
 }

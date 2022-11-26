@@ -3,10 +3,11 @@ use strum::EnumIter;
 use strum::FromRepr;
 
 /// [Fandom Wiki](https://cavestory.fandom.com/wiki/Soundtrack)
-#[derive(Clone, Copy, PartialEq, Eq, Debug, Display, EnumIter, FromRepr)]
+#[derive(Clone, Copy, Default, PartialEq, Eq, Debug, Display, EnumIter, FromRepr)]
 #[strum(serialize_all = "title_case")]
 #[repr(u32)]
 pub enum Song {
+    #[default]
     Nothing,
     MischievousRobot,
     Safety,
@@ -57,6 +58,6 @@ pub enum Song {
 
 impl From<i32> for Song {
     fn from(v: i32) -> Self {
-        Song::from_repr(v as u32).unwrap_or(Song::Nothing)
+        Song::from_repr(v as u32).unwrap_or(Default::default())
     }
 }

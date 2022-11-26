@@ -2,7 +2,7 @@ use strum::Display;
 use strum::EnumIter;
 use strum::FromRepr;
 
-#[derive(Clone, Copy, Debug, PartialEq, Eq, Display, EnumIter, FromRepr)]
+#[derive(Clone, Copy, Debug, Default, PartialEq, Eq, Display, EnumIter, FromRepr)]
 #[repr(u32)]
 pub enum Map {
     #[strum(serialize = "Credits")]
@@ -30,6 +30,7 @@ pub enum Map {
     #[strum(serialize = "Mimiga Village")]
     MimigaVillage,
     #[strum(serialize = "First Cave")]
+    #[default]
     FirstCave,
     #[strum(serialize = "Start Point")]
     StartPoint,
@@ -187,9 +188,7 @@ pub enum Map {
     CreditsLaboratory,
     #[strum(serialize = "Hermit Gunsmith")]
     HermitGunsmith,
-    #[strum(
-        serialize = "[script loaded right before good/best endings]"
-    )]
+    #[strum(serialize = "[script loaded right before good/best endings]")]
     EmptyMap,
     #[strum(serialize = "Seal Chamber - after fight")]
     SealChamberAfterFight,
@@ -201,6 +200,6 @@ pub enum Map {
 
 impl From<i32> for Map {
     fn from(v: i32) -> Self {
-        Map::from_repr(v as u32).unwrap_or(Map::Credits)
+        Map::from_repr(v as u32).unwrap_or(Default::default())
     }
 }
