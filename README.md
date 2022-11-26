@@ -4,6 +4,8 @@
 
 modify major values in CaveStory(plus)'s `profile.dat`
 
+You may want to check [Fandom wiki](https://cavestory.fandom.com/wiki/Cave_Story_Wiki) for items.
+
 ## Note
 
 As `impl From ...` in `src/items/*.rs`, if you get invalid value from `profile.dat`, it will set to `None`(Nothing for BGM).
