@@ -6,7 +6,7 @@ mod vistor;
 pub struct Profile(Vec<u8>);
 
 impl Profile {
-    fn edit(&mut self, offset: usize, value: i32) {
+    fn edit32(&mut self, offset: usize, value: i32) {
         let p = self.0.as_mut_ptr() as *mut i32;
 
         unsafe {
@@ -30,7 +30,7 @@ impl Profile {
         };
     }
 
-    fn read(&self, offset: usize) -> i32 {
+    fn read32(&self, offset: usize) -> i32 {
         let native: i32 = unsafe { *(self.0.as_ptr() as *const i32).byte_offset(offset as isize) };
         if cfg!(target_endian = "little") {
             native

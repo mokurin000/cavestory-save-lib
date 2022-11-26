@@ -6,6 +6,10 @@ pub(super) const MAP: usize = 0x08;
 pub(super) const HEALTH: usize = 0x20;
 pub(super) const MAX_HEALTH: usize = 0x1C;
 
+pub(super) const TELEPORTER_SIZE: usize = 0x08; // up to seven is safe
+pub(super) const FIRST_TELEPORTER_MENU: usize = 0x158;
+pub(super) const FIRST_TELEPORTER_LOCATION: usize = 0x15c; // 2bytes
+
 pub(super) const WEAPON_SIZE: usize = 0x14;
 pub(super) const FIRST_WEAPON_TYPE: usize = 0x38;
 pub(super) const FIRST_WEAPON_LEVEL: usize = 0x3C;

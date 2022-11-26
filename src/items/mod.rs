@@ -1,7 +1,8 @@
-mod weapon;
 mod inventory;
-mod music;
 mod map;
+mod music;
+mod teleporter;
+mod weapon;
 
 pub use weapon::Weapon;
 pub use weapon::WeaponType;
@@ -12,7 +13,9 @@ pub use music::Song;
 
 pub use map::Map;
 
-#[derive(Debug, Clone, Copy, PartialEq, Eq)]
+pub use teleporter::*;
+
+#[derive(Debug, Default, Clone, Copy, PartialEq, Eq)]
 pub struct Position {
     pub x: i16,
     pub y: i16,
