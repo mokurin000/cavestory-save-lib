@@ -5,7 +5,7 @@ mod music;
 mod teleporter;
 mod weapon;
 
-pub use equipment::Equip;
+pub use equipment::{Equip, EquipOpt};
 pub use equipment::Equipment;
 
 pub use weapon::Weapon;
