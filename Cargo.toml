@@ -1,16 +1,15 @@
 [package]
 name = "cavestory-save-lib"
-version = "2.6.0"
+version = "2.6.1"
 edition = "2021"
 description = "editor for profile.dat of cavestory"
 authors = ["poly000"]
 license-file = "LICENSE"
 repository = "https://github.com/poly000/cavestory-save-lib"
-category = ["parser-implementations"]
+categories = ["parser-implementations"]
 
 [dependencies]
 strum = { version = "0.24.1", features = ["derive"] }
-bit-struct = "0.3.0"
 
 [profile.release]
 strip = true
