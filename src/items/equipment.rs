@@ -5,8 +5,7 @@ pub struct Equip(pub u16);
 
 pub trait EquipOpt {
     fn check(&self, equip: Equipment) -> bool;
-    fn switch_on(&mut self, equip: Equipment);
-    fn switch_off(&mut self, equip: Equipment);
+    fn switch(&mut self, equip: Equipment, state: bool);
 }
 
 #[derive(Clone, Copy, Debug, PartialEq, Eq, Display, EnumIter, FromRepr)]
@@ -28,11 +27,11 @@ impl EquipOpt for Equip {
         2_u16.pow(equip as u32) & self.0 != 0
     }
 
-    fn switch_on(&mut self, equip: Equipment) {
-        self.0 |= 2_u16.pow(equip as u32)
-    }
-
-    fn switch_off(&mut self, equip: Equipment) {
-        self.0 &= !(2_u16.pow(equip as u32))
+    fn switch(&mut self, equip: Equipment, state: bool) {
+        if state {
+            self.0 |= 2_u16.pow(equip as u32)
+        } else {
+            self.0 &= !(2_u16.pow(equip as u32))
+        }
     }
 }
