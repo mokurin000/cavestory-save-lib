@@ -1,6 +1,4 @@
-use strum::Display;
-use strum::EnumIter;
-use strum::FromRepr;
+use strum::{Display, EnumIter, FromRepr};
 
 #[derive(Clone, Copy, Default, Debug, PartialEq, Eq, Display, EnumIter, FromRepr)]
 #[strum(serialize_all = "title_case")]

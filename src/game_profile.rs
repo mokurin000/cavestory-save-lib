@@ -1,4 +1,4 @@
-use crate::items::{Inventory, Map, Song, Weapon, Position, Teleporter};
+use crate::items::{Inventory, Map, Song, Weapon, Position, Teleporter, Equip};
 use crate::profile::Profile;
 
 /// data dumped from [Profile](Profile), with forced slot bound.
@@ -26,6 +26,8 @@ pub struct GameProfile {
 
     /// you should not set 8th teleporter, or it may turn into issue.
     pub teleporter: [Teleporter; 8],
+
+    pub equipment: Equip,
 }
 
 impl GameProfile {
@@ -38,6 +40,7 @@ impl GameProfile {
         let mut weapon: [Weapon; 8] = Default::default();
         let mut inventory: [Inventory; 32] = Default::default();
         let mut teleporter: [Teleporter; 8] = Default::default();
+        let equipment = Equip(profile.equipped());
 
         for i in 0..8 {
             if profile.weapon_type(i) != 0 {
@@ -61,7 +64,7 @@ impl GameProfile {
                 location: profile.teleporter_location(i).into(),
             }
         }
-
+        
         Self {
             position,
             map,
@@ -71,6 +74,7 @@ impl GameProfile {
             weapon,
             inventory,
             teleporter,
+            equipment,
         }
     }
 }
@@ -113,5 +117,7 @@ impl GameProfile {
             profile.set_teleporter_menu(menu as i32, slot);
             profile.set_teleporter_location(location as i16, slot);
         }
+
+        profile.set_equipped(self.equipment.0);
     }
 }

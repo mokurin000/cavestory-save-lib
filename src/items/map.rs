@@ -1,6 +1,4 @@
-use strum::Display;
-use strum::EnumIter;
-use strum::FromRepr;
+use strum::{Display, EnumIter, FromRepr};
 
 #[derive(Clone, Copy, Debug, Default, PartialEq, Eq, Display, EnumIter, FromRepr)]
 #[repr(u32)]

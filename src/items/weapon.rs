@@ -1,6 +1,4 @@
-use strum::Display;
-use strum::EnumIter;
-use strum::FromRepr;
+use strum::{Display, EnumIter, FromRepr};
 
 #[derive(Default, Clone, Copy, Debug, PartialEq, Eq)]
 pub struct Weapon {

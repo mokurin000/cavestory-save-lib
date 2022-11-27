@@ -12,6 +12,4 @@ As `impl From ...` in `src/items/*.rs`, if you get invalid value from `profile.d
 
 ## TODO
 
-- [ ] Teleporter
-- [ ] equipments - currently not in plan, since inventory provides options for equipments
 - [ ] flags ([`bitvec`](https://docs.rs/bitvec/latest/bitvec/)) - currently not in plan, as modify this may break game experience

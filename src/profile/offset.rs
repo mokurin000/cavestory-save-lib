@@ -3,8 +3,10 @@ pub(super) const POSITION_Y: usize = 0x15;
 
 pub(super) const MAP: usize = 0x08;
 
-pub(super) const HEALTH: usize = 0x20;
 pub(super) const MAX_HEALTH: usize = 0x1C;
+pub(super) const HEALTH: usize = 0x20;
+
+pub(super) const EQUIPPED_ITEMS: usize = 0x2C;
 
 pub(super) const TELEPORTER_SIZE: usize = 0x08; // up to seven is safe
 pub(super) const FIRST_TELEPORTER_MENU: usize = 0x158;

@@ -1,8 +1,12 @@
+mod equipment;
 mod inventory;
 mod map;
 mod music;
 mod teleporter;
 mod weapon;
+
+pub use equipment::Equip;
+pub use equipment::Equipment;
 
 pub use weapon::Weapon;
 pub use weapon::WeaponType;

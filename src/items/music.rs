@@ -1,6 +1,4 @@
-use strum::Display;
-use strum::EnumIter;
-use strum::FromRepr;
+use strum::{Display, EnumIter, FromRepr};
 
 /// [Fandom Wiki](https://cavestory.fandom.com/wiki/Soundtrack)
 #[derive(Clone, Copy, Default, PartialEq, Eq, Debug, Display, EnumIter, FromRepr)]

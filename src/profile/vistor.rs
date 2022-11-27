@@ -58,6 +58,10 @@ impl Profile {
         self.edit16(FIRST_TELEPORTER_LOCATION + slot * TELEPORTER_SIZE, location)
     }
 
+    pub fn set_equipped(&mut self, equip: u16) {
+        self.edit16(EQUIPPED_ITEMS, equip as i16);
+    }
+
     pub fn position_x(&self) -> i16 {
         self.read16(POSITION_X)
     }
@@ -111,5 +115,9 @@ impl Profile {
 
     pub fn teleporter_location(&self, slot: usize) -> i16 {
         self.read16(FIRST_TELEPORTER_LOCATION + slot * TELEPORTER_SIZE)
+    }
+
+    pub fn equipped(&self) -> u16 {
+        self.read16(EQUIPPED_ITEMS) as u16
     }
 }
