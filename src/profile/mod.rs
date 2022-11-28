@@ -1,9 +1,20 @@
 mod offset;
 mod vistor;
 
+use thiserror::Error;
+
 /// entire data from `profile.dat`
 #[derive(Clone, Debug)]
 pub struct Profile(Vec<u8>);
+
+#[derive(Error, Debug)]
+pub enum ProfileError {
+    #[error("file head not equal to \"Do041220\"!")]
+    IllegalFileHead,
+
+    #[error("file length not match!")]
+    LengthNotMatch,
+}
 
 impl Profile {
     fn edit32(&mut self, offset: usize, value: i32) {
@@ -48,7 +59,7 @@ impl Profile {
         }
     }
 
-    pub fn verify(&self) -> bool {
+    fn verify(&self) -> bool {
         let p = self.0.as_ptr() as *const [u8; 8];
         unsafe {
             let head: [u8; 8] = p.read();
@@ -57,9 +68,16 @@ impl Profile {
     }
 }
 
-impl From<Vec<u8>> for Profile {
-    fn from(content: Vec<u8>) -> Self {
-        Profile(content)
+impl TryFrom<Vec<u8>> for Profile {
+    type Error = ProfileError;
+
+    fn try_from(value: Vec<u8>) -> Result<Self, Self::Error> {
+        let profile = Profile(value);
+        match (profile.0.len() == 0x603, profile.verify()) {
+            (true, true) => Ok(profile),
+            (false, _) => Err(ProfileError::LengthNotMatch),
+            (_, false) => Err(ProfileError::IllegalFileHead),
+        }
     }
 }
 

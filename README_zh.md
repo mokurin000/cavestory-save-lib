@@ -2,7 +2,7 @@
 
 [![](https://img.shields.io/docsrs/cavestory-save-lib)](https://docs.rs/cavestory-save-lib/latest/cavestory_save/)
 
-改《洞穴物语（Plus）》的 `profile.dat` 的库。
+改《洞穴物语》的 `profile.dat` 的库。
 
 ## 注意
 

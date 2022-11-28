@@ -2,7 +2,7 @@
 
 [![](https://img.shields.io/docsrs/cavestory-save-lib)](https://docs.rs/cavestory-save-lib/latest/cavestory_save/)
 
-modify major values in CaveStory(plus)'s `profile.dat`
+modify major values in CaveStory's `profile.dat`
 
 You may want to check [Fandom wiki](https://cavestory.fandom.com/wiki/Cave_Story_Wiki) for items.
 
