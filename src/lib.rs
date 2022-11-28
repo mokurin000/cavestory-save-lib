@@ -9,4 +9,5 @@ mod profile;
 mod game_profile;
 
 pub use profile::Profile;
+pub use profile::ProfileError;
 pub use game_profile::GameProfile;
