@@ -73,7 +73,7 @@ impl TryFrom<Vec<u8>> for Profile {
 
     fn try_from(value: Vec<u8>) -> Result<Self, Self::Error> {
         let profile = Profile(value);
-        match (profile.0.len() == 0x603, profile.verify()) {
+        match (profile.0.len() == 0x604, profile.verify()) {
             (true, true) => Ok(profile),
             (false, _) => Err(ProfileError::LengthNotMatch),
             (_, false) => Err(ProfileError::IllegalFileHead),
