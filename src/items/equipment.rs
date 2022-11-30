@@ -1,7 +1,7 @@
 use strum::{Display, EnumIter, FromRepr};
 
 #[derive(Clone, Copy, PartialEq, Eq, Debug)]
-pub struct Equip(pub u16);
+pub struct Equip(pub(crate) u16);
 
 pub trait EquipOpt {
     fn check(&self, equip: Equipment) -> bool;
