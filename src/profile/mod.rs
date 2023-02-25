@@ -7,7 +7,7 @@ use thiserror::Error;
 #[derive(Clone, Debug)]
 pub struct Profile(Vec<u8>);
 
-#[derive(Error, Debug)]
+#[derive(Error, Debug, Clone, Copy)]
 pub enum ProfileError {
     #[error("file head not equal to \"Do041220\"!")]
     IllegalFileHead,
