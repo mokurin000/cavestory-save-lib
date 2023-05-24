@@ -18,45 +18,55 @@ pub enum ProfileError {
 
 impl Profile {
     fn edit32(&mut self, offset: usize, value: i32) {
-        let p = self.0.as_mut_ptr() as *mut i32;
+        if offset + 4 > self.0.len() {
+            panic!("out of bound");
+        }
+
+        let p = self.0.as_mut_ptr() as *mut [u8; 4];
 
         unsafe {
-            *p.byte_offset(offset as isize) = if cfg!(target_endian = "little") {
-                value
-            } else {
-                value.swap_bytes()
-            }
+            p.byte_offset(offset as isize)
+                .write_unaligned(value.to_le_bytes())
         };
     }
 
     fn edit16(&mut self, offset: usize, value: i16) {
-        let p = self.0.as_mut_ptr() as *mut i16;
+        if offset + 2 > self.0.len() {
+            panic!("out of bound");
+        }
+
+        let p = self.0.as_mut_ptr() as *mut [u8; 2];
 
         unsafe {
-            *p.byte_offset(offset as isize) = if cfg!(target_endian = "little") {
-                value
-            } else {
-                value.swap_bytes()
-            }
+            p.byte_offset(offset as isize)
+                .write_unaligned(value.to_le_bytes())
         };
     }
 
     fn read32(&self, offset: usize) -> i32 {
-        let native: i32 = unsafe { *(self.0.as_ptr() as *const i32).byte_offset(offset as isize) };
-        if cfg!(target_endian = "little") {
-            native
-        } else {
-            native.swap_bytes()
+        if offset + 4 > self.0.len() {
+            panic!("out of bound");
         }
+
+        let bytes: [u8; 4] = unsafe {
+            (self.0.as_ptr() as *const [u8; 4])
+                .byte_offset(offset as _)
+                .read_unaligned()
+        };
+        i32::from_le_bytes(bytes)
     }
 
     fn read16(&self, offset: usize) -> i16 {
-        let native: i16 = unsafe { *(self.0.as_ptr() as *const i16).byte_offset(offset as isize) };
-        if cfg!(target_endian = "little") {
-            native
-        } else {
-            native.swap_bytes()
+        if offset + 2 > self.0.len() {
+            panic!("out of bound");
         }
+
+        let bytes: [u8; 2] = unsafe {
+            (self.0.as_ptr() as *const [u8; 2])
+                .byte_offset(offset as _)
+                .read_unaligned()
+        };
+        i16::from_le_bytes(bytes)
     }
 
     fn verify(&self) -> bool {
@@ -73,11 +83,15 @@ impl TryFrom<Vec<u8>> for Profile {
 
     fn try_from(value: Vec<u8>) -> Result<Self, Self::Error> {
         let profile = Profile(value);
-        match (profile.0.len() == 0x604, profile.verify()) {
-            (true, true) => Ok(profile),
-            (false, _) => Err(ProfileError::LengthNotMatch),
-            (_, false) => Err(ProfileError::IllegalFileHead),
+
+        if profile.0.len() != 0x604 {
+            return Err(ProfileError::LengthNotMatch);
         }
+        if !profile.verify() {
+            return Err(ProfileError::IllegalFileHead);
+        }
+
+        Ok(profile)
     }
 }
 

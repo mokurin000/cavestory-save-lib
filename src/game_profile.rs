@@ -1,4 +1,4 @@
-use crate::items::{Inventory, Map, Song, Weapon, Position, Teleporter, Equip};
+use crate::items::{Equip, Inventory, Map, Position, Song, Teleporter, Weapon};
 use crate::profile::Profile;
 
 /// data dumped from [Profile](Profile), with forced slot bound.
@@ -32,7 +32,10 @@ pub struct GameProfile {
 
 impl GameProfile {
     pub fn dump(profile: &Profile) -> Self {
-        let position = Position {x: profile.position_x(), y: profile.position_y()};
+        let position = Position {
+            x: profile.position_x(),
+            y: profile.position_y(),
+        };
         let map = profile.map().into();
         let music = profile.music().into();
         let health = profile.health();
@@ -42,29 +45,27 @@ impl GameProfile {
         let mut teleporter: [Teleporter; 8] = Default::default();
         let equipment = Equip(profile.equipped());
 
-        for i in 0..8 {
-            if profile.weapon_type(i) != 0 {
-                weapon[i] = Weapon {
-                    level: profile.weapon_level(i),
-                    ammo: profile.weapon_ammo(i),
-                    max_ammo: profile.weapon_max_ammo(i),
-                    exp: profile.weapon_exp(i),
-                    classification: profile.weapon_type(i).into(),
-                };
-            }
+        for (i, weapon) in weapon.iter_mut().enumerate() {
+            *weapon = Weapon {
+                level: profile.weapon_level(i),
+                ammo: profile.weapon_ammo(i),
+                max_ammo: profile.weapon_max_ammo(i),
+                exp: profile.weapon_exp(i),
+                classification: profile.weapon_type(i).into(),
+            };
         }
 
-        for i in 0..32 {
-            inventory[i] = profile.inventory(i).into();
+        for (i, inventory) in inventory.iter_mut().enumerate() {
+            *inventory = profile.inventory(i).into()
         }
 
-        for i in 0..8 {
-            teleporter[i] = Teleporter {
+        for (i, teleporter) in teleporter.iter_mut().enumerate() {
+            *teleporter = Teleporter {
                 menu: profile.teleporter_menu(i).into(),
                 location: profile.teleporter_location(i).into(),
             }
         }
-        
+
         Self {
             position,
             map,
@@ -113,7 +114,7 @@ impl GameProfile {
             profile.set_inventory(inventory as i32, slot);
         }
 
-        for (slot, &Teleporter{ menu, location}) in self.teleporter.iter().enumerate() {
+        for (slot, &Teleporter { menu, location }) in self.teleporter.iter().enumerate() {
             profile.set_teleporter_menu(menu as i32, slot);
             profile.set_teleporter_location(location as i16, slot);
         }
