@@ -1,6 +1,6 @@
 [package]
 name = "cavestory-save-lib"
-version = "2.8.4"
+version = "2.8.5"
 edition = "2021"
 description = "editor for profile.dat of cavestory"
 authors = ["poly000"]
@@ -9,7 +9,7 @@ repository = "https://github.com/poly000/cavestory-save-lib"
 categories = ["parser-implementations"]
 
 [dependencies]
-strum = { version = "0.24.1", features = ["derive"] }
+strum = { version = "0.25.0", features = ["derive", "std"] }
 thiserror = "1.0.37"
 
 [profile.release]

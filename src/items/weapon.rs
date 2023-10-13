@@ -44,6 +44,6 @@ pub enum WeaponType {
 
 impl From<i32> for WeaponType {
     fn from(v: i32) -> Self {
-        WeaponType::from_repr(v as u32).unwrap_or(Default::default())
+        WeaponType::from_repr(v as u32).unwrap_or_default()
     }
 }

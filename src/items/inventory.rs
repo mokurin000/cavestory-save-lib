@@ -97,6 +97,6 @@ pub enum Inventory {
 
 impl From<i32> for Inventory {
     fn from(v: i32) -> Self {
-        Inventory::from_repr(v as u32).unwrap_or(Default::default())
+        Inventory::from_repr(v as u32).unwrap_or_default()
     }
 }

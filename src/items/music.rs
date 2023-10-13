@@ -56,6 +56,6 @@ pub enum Song {
 
 impl From<i32> for Song {
     fn from(v: i32) -> Self {
-        Song::from_repr(v as u32).unwrap_or(Default::default())
+        Song::from_repr(v as u32).unwrap_or_default()
     }
 }

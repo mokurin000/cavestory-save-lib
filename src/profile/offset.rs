@@ -20,6 +20,6 @@ pub(super) const FIRST_WEAPON_MAX_AMMO: usize = 0x44;
 pub(super) const FIRST_WEAPON_AMMO: usize = 0x48;
 
 pub(super) const INVENTORY_SIZE: usize = 0x04;
-pub(super) const FIRST_INVENTORY_TYPE: usize = 0xd8;
+pub(super) const FIRST_INVENTORY: usize = 0xd8;
 
 pub(super) const SONG: usize = 0x0C;

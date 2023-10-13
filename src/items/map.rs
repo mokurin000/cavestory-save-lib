@@ -198,6 +198,6 @@ pub enum Map {
 
 impl From<i32> for Map {
     fn from(v: i32) -> Self {
-        Map::from_repr(v as u32).unwrap_or(Default::default())
+        Map::from_repr(v as u32).unwrap_or_default()
     }
 }

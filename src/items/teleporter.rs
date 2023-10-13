@@ -33,7 +33,7 @@ pub enum TeleporterLocation {
 
 impl From<i32> for TeleporterMenu {
     fn from(v: i32) -> Self {
-        TeleporterMenu::from_repr(v as u32).unwrap_or(Default::default())
+        TeleporterMenu::from_repr(v as u32).unwrap_or_default()
     }
 }
 

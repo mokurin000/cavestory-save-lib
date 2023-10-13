@@ -43,7 +43,7 @@ impl Profile {
     }
 
     pub fn set_inventory(&mut self, inventory: i32, slot: usize) {
-        self.edit32(FIRST_INVENTORY_TYPE + INVENTORY_SIZE * slot, inventory)
+        self.edit32(FIRST_INVENTORY + INVENTORY_SIZE * slot, inventory)
     }
 
     pub fn set_music(&mut self, song: i32) {
@@ -103,7 +103,7 @@ impl Profile {
     }
 
     pub fn inventory(&self, slot: usize) -> i32 {
-        self.read32(FIRST_INVENTORY_TYPE + INVENTORY_SIZE * slot)
+        self.read32(FIRST_INVENTORY + INVENTORY_SIZE * slot)
     }
 
     pub fn music(&self) -> i32 {
