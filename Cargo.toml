@@ -1,6 +1,6 @@
 [package]
 name = "cavestory-save-lib"
-version = "2.9.1"
+version = "2.9.2"
 edition = "2021"
 description = "editor for profile.dat of cavestory"
 authors = ["poly000"]
